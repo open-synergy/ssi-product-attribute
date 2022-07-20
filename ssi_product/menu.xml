@@ -10,6 +10,13 @@
     />
 
 <menuitem
+        id="menu_pricelist_root"
+        name="Pricelist"
+        parent="menu_root_product"
+        sequence="3"
+    />
+
+<menuitem
         id="menu_product_report"
         name="Report"
         parent="menu_root_product"
@@ -36,7 +43,7 @@
         sequence="2"
     />
 <menuitem
-        id="menu_pricelist_root"
+        id="menu_pricelist_configuration_root"
         name="Pricelist"
         parent="menu_product_configuration"
         sequence="3"
