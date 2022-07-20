@@ -4,11 +4,11 @@
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
 <menuitem
-        id="product_pricelist_menu"
-        name="Pricelists"
+        id="product_supplierinfo_menu"
+        name="Vendor Pricelists"
         parent="menu_pricelist_root"
-        action="product.product_pricelist_action2"
-        groups="pricelist_configurator_group"
-        sequence="1"
+        action="product.product_supplierinfo_type_action"
+        groups="vendor_pricelist_configurator_group"
+        sequence="2"
     />
 </odoo>

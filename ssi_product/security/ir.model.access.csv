@@ -21,3 +21,5 @@ access_product_pricelist_configurator,product.pricelist - configurator,product.m
 access_product_pricelist_all,product.pricelist - all,product.model_product_pricelist,,1,0,0,0
 access_product_pricelist_item_configurator,product.pricelist.item - configurator,product.model_product_pricelist_item,pricelist_configurator_group,1,1,1,1
 access_product_pricelist_item_all,product.pricelist.item - all,product.model_product_pricelist_item,,1,0,0,0
+access_product_supplierinfo_configurator,product.supplierinfo - configurator,product.model_product_supplierinfo,vendor_pricelist_configurator_group,1,1,1,1
+access_product_supplierinfo_all,product.supplierinfo - all,product.model_product_supplierinfo,,1,0,0,0
