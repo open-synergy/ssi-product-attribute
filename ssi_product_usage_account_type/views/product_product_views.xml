@@ -13,11 +13,22 @@
             <xpath expr="//group[@name='accounting']" position="after">
                 <group name="accounts" colspan="4" col="2">
                     <field name="account_ids">
-                        <tree editable="top">
+                        <tree>
                             <field name="usage_id" widget="selection" />
                             <field name="selection_method" />
                             <field name="account_id" />
+                            <field name="tax_selection_method" />
+                            <field name="tax_ids" widget="many2many_tags" />
                         </tree>
+                        <form>
+                            <group>
+                                <field name="usage_id" widget="selection" />
+                                <field name="selection_method" />
+                                <field name="account_id" />
+                                <field name="tax_selection_method" />
+                                <field name="tax_ids" widget="many2many_tags" />
+                            </group>
+                        </form>
                     </field>
                 </group>
             </xpath>

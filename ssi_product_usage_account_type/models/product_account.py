@@ -38,6 +38,22 @@ class ProductAccount(models.Model):
         ondelete="restrict",
         company_dependent=True,
     )
+    tax_selection_method = fields.Selection(
+        string="Tax Selection Method",
+        selection=[
+            ("fixed", "Fixed"),
+            ("python", "Python Code"),
+        ],
+        required=True,
+        default="fixed",
+    )
+    tax_ids = fields.Many2many(
+        string="Taxes",
+        comodel_name="account.tax",
+        relation="rel_product_account_2_tax",
+        column1="product_account_id",
+        column2="tax_id",
+    )
 
     @api.constrains(
         "usage_id",
