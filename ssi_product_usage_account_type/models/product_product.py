@@ -35,6 +35,24 @@ class ProductProduct(models.Model):
 
         return result
 
+    def _get_product_tax(self, usage_code, local_dict=False):
+        self.ensure_one()
+        result = False
+
+        result = self._get_tax(usage_code=usage_code)
+
+        if not result:
+            result = self.product_tmpl_id._get_tax(
+                usage_code=usage_code, local_dict=local_dict
+            )
+
+        if not result:
+            result = self.categ_id._get_tax(
+                usage_code=usage_code, local_dict=local_dict
+            )
+
+        return result
+
     def _get_account(self, usage_code, local_dict=False):
         self.ensure_one()
         ProductAccount = self.env["product.account"]
@@ -46,4 +64,17 @@ class ProductProduct(models.Model):
 
         if len(product_accounts) > 0:
             result = product_accounts[0].account_id
+        return result
+
+    def _get_tax(self, usage_code, local_dict=False):
+        self.ensure_one()
+        ProductAccount = self.env["product.account"]
+        result = []
+
+        criteria = [("product_id", "=", self.id), ("usage_id.code", "=", usage_code)]
+
+        product_accounts = ProductAccount.search(criteria)
+
+        if len(product_accounts) > 0:
+            result = product_accounts[0].tax_ids.ids
         return result
