@@ -13,11 +13,10 @@
     "depends": [
         "ssi_product",
         "website",
-        "website_sale",
     ],
     "data": [
-        "views/templates.xml",
         "data/data.xml",
+        "views/templates.xml",
     ],
     "demo": [],
 }

@@ -55,7 +55,7 @@ publicWidget.registry.productsRecentlyViewedSnippet = publicWidget.Widget.extend
      */
     _fetch: function () {
         return this._rpc({
-            route: '/shop/products/recently_viewed',
+            route: '/product_catalog/products/recently_viewed',
         }).then(res => {
             var products = res['products'];
 
@@ -143,7 +143,7 @@ publicWidget.registry.productsRecentlyViewedSnippet = publicWidget.Widget.extend
         var self = this;
         var $card = $(ev.currentTarget).closest('.card');
         this._rpc({
-            route: "/shop/cart/update_json",
+            route: "/product_catalog/cart/update_json",
             params: {
                 product_id: $card.find('input[data-product-id]').data('product-id'),
                 add_qty: 1
@@ -168,7 +168,7 @@ publicWidget.registry.productsRecentlyViewedSnippet = publicWidget.Widget.extend
         var self = this;
         var $card = $(ev.currentTarget).closest('.card');
         this._rpc({
-            route: "/shop/products/recently_viewed_delete",
+            route: "/product_catalog/products/recently_viewed_delete",
             params: {
                 product_id: $card.find('input[data-product-id]').data('product-id'),
             },
@@ -215,7 +215,7 @@ publicWidget.registry.productsRecentlyViewedUpdate = publicWidget.Widget.extend(
             return; // Variant not possible
         }
         this._rpc({
-            route: '/shop/products/recently_viewed_update',
+            route: '/product_catalog/products/recently_viewed_update',
             params: {
                 product_id: productId,
             }

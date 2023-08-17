@@ -28,7 +28,7 @@ publicWidget.registry.websiteSaleValidate = publicWidget.Widget.extend({
     _paymentTransationPollStatus: function () {
         var self = this;
         this._rpc({
-            route: '/shop/payment/get_status/' + parseInt(this.$el.data('order-id')),
+            route: '/product_catalog/payment/get_status/' + parseInt(this.$el.data('order-id')),
         }).then(function (result) {
             self._poll_nbr += 1;
             if (result.recall) {

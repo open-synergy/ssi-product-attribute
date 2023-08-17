@@ -5,10 +5,10 @@ var publicWidget = require('web.public.widget');
 publicWidget.registry.websiteSaleTracking = publicWidget.Widget.extend({
     selector: '.oe_website_sale',
     events: {
-        'click form[action="/shop/cart/update"] a.a-submit': '_onAddProductIntoCart',
-        'click a[href="/shop/checkout"]': '_onCheckoutStart',
-        'click div.oe_cart a[href^="/web?redirect"][href$="/shop/checkout"]': '_onCustomerSignin',
-        'click form[action="/shop/confirm_order"] a.a-submit': '_onOrder',
+        'click form[action="/product_catalog/cart/update"] a.a-submit': '_onAddProductIntoCart',
+        'click a[href="/product_catalog/checkout"]': '_onCheckoutStart',
+        'click div.oe_cart a[href^="/web?redirect"][href$="/product_catalog/checkout"]': '_onCustomerSignin',
+        'click form[action="/product_catalog/confirm_order"] a.a-submit': '_onOrder',
         'click form[target="_self"] button[type=submit]': '_onOrderPayment',
     },
 
@@ -32,7 +32,7 @@ publicWidget.registry.websiteSaleTracking = publicWidget.Widget.extend({
             this._vpv('/stats/ecom/order_confirmed/' + orderID);
 
             this._rpc({
-                route: '/shop/tracking_last_order/',
+                route: '/product_catalog/tracking_last_order/',
             }).then(function (o) {
                 self._trackGA('ecommerce:clear');
 

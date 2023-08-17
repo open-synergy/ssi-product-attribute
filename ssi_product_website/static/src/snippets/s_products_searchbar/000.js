@@ -76,7 +76,7 @@ publicWidget.registry.productsSearchBar = publicWidget.Widget.extend({
      */
     _fetch: function () {
         return this._rpc({
-            route: '/shop/products/autocomplete',
+            route: '/product_catalog/products/autocomplete',
             params: {
                 'term': this.$input.val(),
                 'options': {

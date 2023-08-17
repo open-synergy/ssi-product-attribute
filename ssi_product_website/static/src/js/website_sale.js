@@ -9,7 +9,7 @@ var timeout;
 
 publicWidget.registry.websiteSaleCartLink = publicWidget.Widget.extend({
     // TODO in master: remove the second selector.
-    selector: '#top a[href$="/shop/cart"]:not(.js_change_lang), #top_menu a[href$="/shop/cart"]:not(.js_change_lang)',
+    selector: '#top a[href$="/product_catalog/cart"]:not(.js_change_lang), #top_menu a[href$="/product_catalog/cart"]:not(.js_change_lang)',
     events: {
         'mouseenter': '_onMouseEnter',
         'mouseleave': '_onMouseLeave',
@@ -57,7 +57,7 @@ publicWidget.registry.websiteSaleCartLink = publicWidget.Widget.extend({
             if (!self.$el.is(':hover') || $('.mycart-popover:visible').length) {
                 return;
             }
-            self._popoverRPC = $.get("/shop/cart", {
+            self._popoverRPC = $.get("/product_catalog/cart", {
                 type: 'popover',
             }).then(function (data) {
                 self.$el.data("bs.popover").config.content = data;
@@ -297,7 +297,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
         $input.data('update_change', true);
 
         this._rpc({
-            route: "/shop/cart/update_json",
+            route: "/product_catalog/cart/update_json",
             params: {
                 line_id: line_id,
                 product_id: parseInt($input.data('product-id'), 10),
@@ -314,7 +314,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
                 return;
             }
             if (!data.cart_quantity) {
-                return window.location = '/shop/cart';
+                return window.location = '/product_catalog/cart';
             }
             $input.val(data.quantity);
 
@@ -330,7 +330,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
             return;
         }
         this._rpc({
-            route: "/shop/country_infos/" + $("#country_id").val(),
+            route: "/product_catalog/country_infos/" + $("#country_id").val(),
             params: {
                 mode: $("#country_id").attr('mode'),
             },
@@ -533,7 +533,7 @@ publicWidget.registry.WebsiteSale = publicWidget.Widget.extend(VariantMixin, {
             params.express = true;
         }
 
-        return wUtils.sendRequest('/shop/cart/update', params);
+        return wUtils.sendRequest('/product_catalog/cart/update', params);
     },
     /**
      * @private
@@ -757,7 +757,7 @@ publicWidget.registry.WebsiteSaleLayout = publicWidget.Widget.extend({
         var switchToList = $(ev.currentTarget).find('.o_wsale_apply_list input').is(':checked');
         if (!this.editableMode) {
             this._rpc({
-                route: '/shop/save_shop_layout_mode',
+                route: '/product_catalog/save_shop_layout_mode',
                 params: {
                     'layout_mode': switchToList ? 'list' : 'grid',
                 },
@@ -811,7 +811,7 @@ publicWidget.registry.websiteSaleCart = publicWidget.Widget.extend({
      */
     _onClickEditAddress: function (ev) {
         ev.preventDefault();
-        $(ev.currentTarget).closest('div.one_kanban').find('form.d-none').attr('action', '/shop/address').submit();
+        $(ev.currentTarget).closest('div.one_kanban').find('form.d-none').attr('action', '/product_catalog/address').submit();
     },
     /**
      * @private

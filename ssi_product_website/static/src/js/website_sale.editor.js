@@ -34,7 +34,7 @@ WebsiteNewMenu.include({
                 return;
             }
             return self._rpc({
-                route: '/shop/add_product',
+                route: '/product_catalog/add_product',
                 params: {
                     name: result.val,
                 },
@@ -306,7 +306,7 @@ options.registry.WebsiteSaleGridLayout = options.Class.extend({
         }
         this.ppg = Math.min(ppg, PPG_LIMIT);
         return this._rpc({
-            route: '/shop/change_ppg',
+            route: '/product_catalog/change_ppg',
             params: {
                 'ppg': this.ppg,
             },
@@ -318,7 +318,7 @@ options.registry.WebsiteSaleGridLayout = options.Class.extend({
     setPpr: function (previewMode, widgetValue, params) {
         this.ppr = parseInt(widgetValue);
         this._rpc({
-            route: '/shop/change_ppr',
+            route: '/product_catalog/change_ppr',
             params: {
                 'ppr': this.ppr,
             },
@@ -516,7 +516,7 @@ options.registry.WebsiteSaleProductsItem = options.Class.extend({
      */
     changeSequence: function (previewMode, widgetValue, params) {
         this._rpc({
-            route: '/shop/change_sequence',
+            route: '/product_catalog/change_sequence',
             params: {
                 id: this.productTemplateID,
                 sequence: widgetValue,
@@ -688,7 +688,7 @@ options.registry.WebsiteSaleProductsItem = options.Class.extend({
         var x = $td.index() + 1;
         var y = $td.parent().index() + 1;
         this._rpc({
-            route: '/shop/change_size',
+            route: '/product_catalog/change_size',
             params: {
                 id: this.productTemplateID,
                 x: x,
