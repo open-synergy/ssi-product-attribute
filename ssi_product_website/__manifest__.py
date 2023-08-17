@@ -16,7 +16,7 @@
         "website_sale",
     ],
     "data": [
-        # "views/templates.xml",
+        "views/templates.xml",
         "data/data.xml",
     ],
     "demo": [],

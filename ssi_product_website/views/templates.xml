@@ -2,74 +2,74 @@
 <odoo>
     <template id="_assets_primary_variables" inherit_id="website._assets_primary_variables">
         <xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/primary_variables.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/primary_variables.scss"/>
         </xpath>
     </template>
 
     <template id="assets_backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_video_field_preview.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_backend.js"></script>
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale_dashboard.scss"/>
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale_backend.scss"/>
-            <script type="text/javascript" src="/website_sale/static/src/js/tours/website_sale_shop_backend.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_video_field_preview.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_backend.js"></script>
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_sale_dashboard.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_sale_backend.scss"/>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/tours/website_sale_shop_backend.js"></script>
         </xpath>
     </template>
 
     <template id="assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr="link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale.scss" />
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_mail.scss" />
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale_frontend.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_sale.scss" />
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_mail.scss" />
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_sale_frontend.scss"/>
             <link rel="stylesheet" type="text/scss" href="/sale/static/src/scss/sale_portal.scss"/>
             <link rel="stylesheet" type="text/scss" href="/sale/static/src/scss/product_configurator.scss"/>
         </xpath>
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/sale/static/src/js/variant_mixin.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/variant_mixin.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_utils.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_payment.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_validate.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_recently_viewed.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_tracking.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/variant_mixin.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_utils.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_payment.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_validate.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_recently_viewed.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_tracking.js"></script>
         </xpath>
     </template>
 
     <template id="assets_wysiwyg" inherit_id="website.assets_wysiwyg" name="Shop Wysiwyg Editor">
         <xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale.editor.scss"/>
-            <script type="text/javascript" src="/website_sale/static/src/snippets/s_dynamic_snippet_products/options.js"/>
+            <link rel="stylesheet" type="text/scss" href="/ssi_product_website/static/src/scss/website_sale.editor.scss"/>
+            <script type="text/javascript" src="/ssi_product_website/static/src/snippets/s_dynamic_snippet_products/options.js"/>
         </xpath>
     </template>
 
     <template id="assets_editor" inherit_id="website.assets_editor" name="Shop Editor">
         <xpath expr="//script[last()]" position="after">
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale.editor.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/website_sale_form_editor.js"></script>
-            <script type="text/javascript" src="/website_sale/static/src/js/tours/website_sale_shop_frontend.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale.editor.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_form_editor.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/tours/website_sale_shop_frontend.js"></script>
         </xpath>
     </template>
 
     <template id="assets_common" name="tour" inherit_id="web.assets_common">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/website_sale/static/src/js/tours/website_sale_shop.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/tours/website_sale_shop.js"></script>
         </xpath>
     </template>
 
     <template id="assets_tests" name="Website Sale Assets Tests" inherit_id="web.assets_tests">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_buy.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_complete_flow.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_cart_recovery.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_mail.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_customize.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_custom_attribute_value.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_zoom.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_dynamic_variants.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_deleted_archived_variants.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_list_view_b2c.js"></script>
-            <script type="text/javascript" src="/website_sale/static/tests/tours/website_sale_shop_no_variant_attribute.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_buy.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_complete_flow.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_cart_recovery.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_mail.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_customize.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_custom_attribute_value.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_zoom.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_dynamic_variants.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_deleted_archived_variants.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_list_view_b2c.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/tests/tours/website_sale_shop_no_variant_attribute.js"></script>
         </xpath>
     </template>
 
@@ -78,7 +78,7 @@
         <t t-set="show_cart" t-value="true"/>
         <li t-attf-class="#{_item_class} divider d-none"/> <!-- Make sure the cart and related menus are not folded (see autohideMenu) -->
         <li t-attf-class="o_wsale_my_cart #{not show_cart and 'd-none'} #{_item_class}">
-            <a href="/shop/cart" t-attf-class="#{_link_class}">
+            <a href="/product_catalog/cart" t-attf-class="#{_link_class}">
                 <i t-if="_icon" class="fa fa-shopping-cart"/>
                 <span t-if="_text">My Cart</span>
                 <sup class="my_cart_quantity badge badge-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or '0'" t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
@@ -225,7 +225,7 @@
             <attribute name="t-attf-class" remove="#{_classes}" separator=" "/>
         </xpath>
         <xpath expr="//div[@role='search']" position="replace">
-            <form t-attf-class="o_wsale_products_searchbar_form o_wait_lazy_js #{_classes}" t-att-action="action if action else '/shop'" method="get" t-att-data-snippet="_snippet">
+            <form t-attf-class="o_wsale_products_searchbar_form o_wait_lazy_js #{_classes}" t-att-action="action if action else '/product_catalog'" method="get" t-att-data-snippet="_snippet">
                 <t>$0</t>
                 <input name="order" type="hidden" class="o_wsale_search_order_by" value=""/>
                 <t t-raw="0"/>
@@ -235,7 +235,7 @@
 
     <template id="search" name="Search Box">
         <t t-call="website_sale.website_sale_products_search_box">
-            <t t-set="action" t-value="keep('/shop'+ ('/category/'+slug(category)) if category else None, search=0)"/>
+            <t t-set="action" t-value="keep('/product_catalog'+ ('/category/'+slug(category)) if category else None, search=0)"/>
             <t t-if="attrib_values">
                 <t t-foreach="attrib_values" t-as="a">
                     <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
@@ -251,11 +251,11 @@
     </template>
 
     <template id="products_item" name="Products item">
-        <t t-set="product_href" t-value="keep(product.website_url, page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" />
+        <t t-set="product_href" t-value="keep(product.catalog_url, page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" />
 
         <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
 
-        <form action="/shop/cart/update" method="post" class="card oe_product_cart"
+        <form action="/product_catalog/cart/update" method="post" class="card oe_product_cart"
             t-att-data-publish="product.website_published and 'on' or 'off'"
             itemscope="itemscope" itemtype="http://schema.org/Product">
             <div class="card-body p-1 oe_product_image">
@@ -318,7 +318,7 @@
             </a>
             <div class="dropdown-menu" role="menu">
                 <t t-foreach="website_sale_pricelists" t-as="pl">
-                    <a role="menuitem" t-att-href="'/shop/change_pricelist/%s' % pl.id" class="dropdown-item">
+                    <a role="menuitem" t-att-href="'/product_catalog/change_pricelist/%s' % pl.id" class="dropdown-item">
                         <span class="switcher_pricelist" t-att-data-pl_id="pl.id" t-esc="pl.name" />
                     </a>
                 </t>
@@ -326,7 +326,7 @@
         </div>
     </template>
 
-    <!-- /shop product listing -->
+    <!-- /product_catalog product listing -->
     <template id="products" name="Products">
         <t t-call="website.layout">
             <t t-set="additional_title">Shop</t>
@@ -368,7 +368,7 @@
                                                         t-attf-class="oe_product"
                                                         t-att-data-ribbon-id="td_product['ribbon'].id">
                                                         <div t-attf-class="o_wsale_product_grid_wrapper o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
-                                                            <t t-call="website_sale.products_item">
+                                                            <t t-call="ssi_product_website.products_item">
                                                                 <t t-set="product_image_big" t-value="td_product['x'] + td_product['y'] &gt; 2"/>
                                                             </t>
                                                         </div>
@@ -438,7 +438,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <t t-foreach="website_sale_sortable" t-as="sortby">
-                        <a role="menuitem" rel="noindex,nofollow" t-att-href="keep('/shop', order=sortby[1])" class="dropdown-item">
+                        <a role="menuitem" rel="noindex,nofollow" t-att-href="keep('/product_catalog', order=sortby[1])" class="dropdown-item">
                             <span t-raw="sortby[0]"/>
                         </a>
                     </t>
@@ -463,7 +463,7 @@
     <!-- Add to cart button-->
     <template id="categories_recursive" name="Category list">
         <li class="nav-item">
-            <a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}">
+            <a t-att-href="keep('/product_catalog/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}">
                 <span t-field="c.name"/>
             </a>
             <ul t-if="c.child_id" class="nav nav-pills flex-column nav-hierarchy">
@@ -488,7 +488,7 @@
             <div class="collapse d-lg-block" id="wsale_products_categories_collapse">
                 <ul class="nav nav-pills flex-column mb-2">
                     <li class="nav-item">
-                        <a t-att-href="keep('/shop', category=0)" t-attf-class="nav-link #{'' if category else 'active'} o_not_editable">All Products</a>
+                        <a t-att-href="keep('/product_catalog', category=0)" t-attf-class="nav-link #{'' if category else 'active'} o_not_editable">All Products</a>
                     </li>
                     <t t-foreach="categories" t-as="c">
                         <t t-call="website_sale.categories_recursive" />
@@ -504,7 +504,7 @@
             <i t-if="children" t-attf-class="text-primary fa #{'fa-chevron-down' if c.id in category.parents_and_self.ids else 'fa-chevron-right'}"
                t-attf-title="#{'Unfold' if c.id in category.parents_and_self.ids else 'Fold'}"
                t-attf-aria-label="#{'Unfold' if c.id in category.parents_and_self.ids else 'Fold'}" role="img"/>
-            <a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
+            <a t-att-href="keep('/product_catalog/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
             <ul t-if="children" class="nav nav-pills flex-column nav-hierarchy" t-att-style="'display:block;' if c.id in category.parents_and_self.ids else 'display:none;'">
                 <t t-foreach="children" t-as="c">
                     <t t-call="website_sale.option_collapse_categories_recursive"/>
@@ -584,7 +584,7 @@
         </xpath>
     </template>
 
-    <!-- /shop/product page -->
+    <!-- /product_catalog/product page -->
     <template id="product_edit_options" inherit_id="website.user_navbar" name="Edit Product Options">
         <xpath expr="//li[@id='edit-page-menu']" position="after">
             <t t-if="main_object._name == 'product.template'" t-set="action" t-value="'website_sale.product_template_action_website'" />
@@ -608,7 +608,7 @@
                                     <a t-att-href="keep(category=0)">Products</a>
                                 </li>
                                 <li t-if="category" class="breadcrumb-item">
-                                    <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name" />
+                                    <a t-att-href="keep('/product_catalog/category/%s' % slug(category), category=0)" t-field="category.name" />
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <span t-field="product.name" />
@@ -632,31 +632,16 @@
                         </div>
                         <div class="col-md-6 col-xl-4" id="product_details">
                             <t t-set="base_url" t-value="product.get_base_url()"/>
-                            <h1 itemprop="name" t-field="product.name">Product Name</h1>
                             <span itemprop="url" style="display:none;" t-esc="base_url + product.website_url"/>
                             <span itemprop="image" style="display:none;" t-esc="base_url + website.image_url(product, 'image_1920')" />
-                            <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update" method="POST">
+                            <form>
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <div class="js_product js_main_product">
-                                    <t t-placeholder="select">
-                                        <input type="hidden" class="product_id" name="product_id" t-att-value="product_variant.id" />
-                                        <input type="hidden" class="product_template_id" name="product_template_id" t-att-value="product.id" />
-                                        <t t-if="combination" t-call="sale.variants">
-                                            <t t-set="ul_class" t-value="'flex-column'" />
-                                            <t t-set="parent_combination" t-value="None" />
-                                        </t>
-                                        <t t-else="">
-                                            <ul class="d-none js_add_cart_variants" t-att-data-attribute_exclusions="{'exclusions: []'}"/>
-                                        </t>
-                                    </t>
                                     <t t-call="website_sale.product_price" />
                                     <p t-if="True" class="css_not_available_msg alert alert-warning">This combination does not exist.</p>
-                                    <a role="button" id="add_to_cart" class="btn btn-primary btn-lg mt16 js_check_product a-submit d-block d-sm-inline-block" href="#"><i class="fa fa-shopping-cart"/> Add to Cart</a>
                                     <div id="product_option_block"/>
                                 </div>
                             </form>
-                            <p t-elif="not product.active" class="alert alert-warning">This product is no longer available.</p>
-                            <p t-else="" class="alert alert-warning">This product has no valid combination.</p>
                             <hr t-if="product.description_sale" />
                             <div>
                                 <p t-field="product.description_sale" class="text-muted mt-3" placeholder="A short description that will also appear on documents." />
@@ -686,7 +671,7 @@
     <template id="product_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions">
         <xpath expr="//div[@id='product_details']" position="inside">
             <p class="text-muted">
-                <a href="/shop/terms">Terms and Conditions</a><br/>
+                <a href="/product_catalog/terms">Terms and Conditions</a><br/>
                 30-day money-back guarantee<br/>
                 Shipping: 2-3 Business Days
             </p>
@@ -846,21 +831,21 @@
             <div class="col-xl">
                 <div class="wizard">
                     <div class="progress-wizard">
-                        <a class="no-decoration" t-att-href="step&gt;=10 and '/shop/cart' or '#'">
+                        <a class="no-decoration" t-att-href="step&gt;=10 and '/product_catalog/cart' or '#'">
                           <div id="wizard-step10" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
                             <div class="progress-wizard-bar d-none d-md-block"/>
                             <span class="progress-wizard-dot d-none d-md-inline-block"></span>
                             <div class="text-center progress-wizard-steplabel">Review Order</div>
                           </div>
                         </a>
-                        <a class="no-decoration" t-att-href="step&gt;=20 and '/shop/checkout' or '#'">
+                        <a class="no-decoration" t-att-href="step&gt;=20 and '/product_catalog/checkout' or '#'">
                           <div id="wizard-step20" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
                             <div class="progress-wizard-bar d-none d-md-block"/>
                             <span class="progress-wizard-dot d-none d-md-inline-block"></span>
                             <div class="text-center progress-wizard-steplabel">Address</div>
                           </div>
                         </a>
-                        <a class="no-decoration" t-att-href="step&gt;=40 and '/shop/payment' or '#'">
+                        <a class="no-decoration" t-att-href="step&gt;=40 and '/product_catalog/payment' or '#'">
                           <div id="wizard-step40" t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
                             <div class="progress-wizard-bar d-none d-md-block"/>
                             <span class="progress-wizard-dot d-none d-md-inline-block"></span>
@@ -886,13 +871,13 @@
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
                             <t t-call="website_sale.cart_summary">
-                                <t t-set="redirect" t-valuef="/shop/extra_info"/>
+                                <t t-set="redirect" t-valuef="/product_catalog/extra_info"/>
                             </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
                                 <div class="container">
-                                    <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required s_website_form_no_recaptcha" data-mark="*" data-force_action="shop.sale.order" data-model_name="sale.order" data-success-mode="redirect" data-success-page="/shop/payment" hide-change-model="true">
+                                    <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required s_website_form_no_recaptcha" data-mark="*" data-force_action="shop.sale.order" data-model_name="sale.order" data-success-mode="redirect" data-success-page="/product_catalog/payment" hide-change-model="true">
                                         <div class="s_website_form_rows row s_col_no_bgcolor">
                                             <div class="form-group col-12 s_website_form_field" data-type="char" data-name="Field">
                                                 <div class="row s_col_no_resize s_col_no_bgcolor">
@@ -926,8 +911,8 @@
                                             </div>
                                             <div class="form-group col-12 s_website_form_submit s_website_form_no_submit_options">
                                                 <div style="width: 200px;" class="s_website_form_label"/>
-                                                <a role="button" href="/shop/checkout" class="btn btn-secondary float-left"><span class="fa fa-chevron-left"/> Previous</a>
-                                                <a role="button" class="btn btn-primary float-right s_website_form_send" href="/shop/confirm_order">Next <span class="fa fa-chevron-right" /></a>
+                                                <a role="button" href="/product_catalog/checkout" class="btn btn-secondary float-left"><span class="fa fa-chevron-left"/> Previous</a>
+                                                <a role="button" class="btn btn-primary float-right s_website_form_send" href="/product_catalog/confirm_order">Next <span class="fa fa-chevron-right" /></a>
                                                 <span id="s_website_form_result"></span>
                                             </div>
                                         </div>
@@ -948,7 +933,7 @@
             <span class="o_wizard_has_extra_step d-none"/>
         </xpath>
         <xpath expr="//div[@id='wizard-step20']" position="after">
-            <a class="no-decoration" t-att-href="step&gt;=30 and '/shop/extra_info' or '#'">
+            <a class="no-decoration" t-att-href="step&gt;=30 and '/product_catalog/extra_info' or '#'">
                 <div id="wizard-step30" t-att-class="'progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
                     <div class="progress-wizard-bar d-none d-md-block"/>
                     <span class="progress-wizard-dot d-none d-md-inline-block"></span>
@@ -1067,19 +1052,19 @@
                                         <t t-if="access_token">
                                             <p>This is your current cart.</p>
                                             <p>
-                                                <strong><a t-attf-href="/shop/cart/?access_token=#{access_token}&amp;revive=squash">Click here</a></strong> if you want to restore your previous cart. Your current cart will be replaced with your previous cart.</p>
+                                                <strong><a t-attf-href="/product_catalog/cart/?access_token=#{access_token}&amp;revive=squash">Click here</a></strong> if you want to restore your previous cart. Your current cart will be replaced with your previous cart.</p>
                                             <p>
-                                                <strong><a t-attf-href="/shop/cart/?access_token=#{access_token}&amp;revive=merge">Click here</a></strong> if you want to merge your previous cart into current cart.
+                                                <strong><a t-attf-href="/product_catalog/cart/?access_token=#{access_token}&amp;revive=merge">Click here</a></strong> if you want to merge your previous cart into current cart.
                                             </p>
                                         </t>
                                     </div>
                                     <t t-call="website_sale.cart_lines" />
                                     <div class="clearfix" />
-                                    <a role="button" href="/shop" class="btn btn-secondary mb32 d-none d-xl-inline-block">
+                                    <a role="button" href="/product_catalog" class="btn btn-secondary mb32 d-none d-xl-inline-block">
                                         <span class="fa fa-chevron-left" />
                                         <span class="">Continue Shopping</span>
                                     </a>
-                                    <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right d-none d-xl-inline-block" href="/shop/checkout?express=1">
+                                    <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right d-none d-xl-inline-block" href="/product_catalog/checkout?express=1">
                                         <span class="">Process Checkout</span>
                                         <span class="fa fa-chevron-right" />
                                     </a>
@@ -1090,11 +1075,11 @@
                         <div class="col-12 col-xl-4" id="o_cart_summary">
                             <t t-call="website_sale.short_cart_summary"/>
                             <div class="d-xl-none mt8">
-                                <a role="button" href="/shop" class="btn btn-secondary mb32">
+                                <a role="button" href="/product_catalog" class="btn btn-secondary mb32">
                                     <span class="fa fa-chevron-left" />
                                     Continue<span class="d-none d-md-inline"> Shopping</span>
                                 </a>
-                                <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right" href="/shop/checkout?express=1">
+                                <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right" href="/product_catalog/checkout?express=1">
                                     <span class="">Process Checkout</span>
                                     <span class="fa fa-chevron-right" />
                                 </a>
@@ -1134,7 +1119,7 @@
                         <t t-set="hide_coupon" t-value="True"/>
                     </t>
                 </span>
-                <a role="button" class="btn btn-primary" href="/shop/cart">
+                <a role="button" class="btn btn-primary" href="/product_catalog/cart">
                        View Cart (<t t-esc="website_sale_order.cart_quantity" /> item(s))
                      </a>
             </div>
@@ -1178,7 +1163,7 @@
     </template>
 
     <template id='coupon_form' name='Coupon form'>
-        <form t-att-action="'/shop/pricelist%s' % (redirect and '?r=' + redirect or '')"
+        <form t-att-action="'/product_catalog/pricelist%s' % (redirect and '?r=' + redirect or '')"
             method="post" name="coupon_code">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
             <div class="input-group w-100">
@@ -1208,7 +1193,7 @@
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
                             <t t-call="website_sale.cart_summary">
-                                <t t-set="redirect" t-valuef="/shop/checkout"/>
+                                <t t-set="redirect" t-valuef="/product_catalog/checkout"/>
                             </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
@@ -1234,7 +1219,7 @@
                                     <div class="col-lg-12">
                                         <div class="row mt8">
                                             <div class="col-md-12 col-lg-12 one_kanban">
-                                                <form action="/shop/address" method="post" class=''>
+                                                <form action="/product_catalog/address" method="post" class=''>
                                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                                     <a role="button" href="#" class='a-submit btn btn-secondary mb16 btn-block'>
                                                         <i class="fa fa-plus-square"/>
@@ -1258,11 +1243,11 @@
                                 </div>
                             </t>
                             <div class="d-flex justify-content-between mt-3">
-                                <a role="button" href="/shop/cart" class="btn btn-secondary mb32">
+                                <a role="button" href="/product_catalog/cart" class="btn btn-secondary mb32">
                                     <i class="fa fa-chevron-left"/>
                                     <span>Return to Cart</span>
                                 </a>
-                                <a role="button" href="/shop/confirm_order" class="btn btn-primary mb32">
+                                <a role="button" href="/product_catalog/confirm_order" class="btn btn-primary mb32">
                                     <span>Confirm</span>
                                     <i class="fa fa-chevron-right"/>
                                 </a>
@@ -1275,11 +1260,11 @@
     </template>
 
     <template id="address_kanban" name="Kanban address">
-            <form action="/shop/checkout" method="POST" class="d-none">
+            <form action="/product_catalog/checkout" method="POST" class="d-none">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                 <input type="hidden" name="partner_id" t-att-value="contact.id" />
                 <t t-if='edit_billing'>
-                    <input type="hidden" name="callback" value="/shop/checkout?use_billing" />
+                    <input type="hidden" name="callback" value="/product_catalog/checkout?use_billing" />
                 </t>
                 <input type='submit'/>
             </form>
@@ -1319,7 +1304,7 @@
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
                             <t t-call="website_sale.cart_summary">
                                 <t t-set="hide_coupon">True</t>
-                                <t t-set="redirect" t-valuef="/shop/address"/>
+                                <t t-set="redirect" t-valuef="/product_catalog/address"/>
                             </t>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
@@ -1327,7 +1312,7 @@
                                 <t t-if="mode == ('new', 'billing')">
                                     <h2 class="o_page_header mt8">Your Address
                                         <small> or </small>
-                                        <a role="button" href='/web/login?redirect=/shop/checkout' class='btn btn-primary' style="margin-top: -11px">Log In</a>
+                                        <a role="button" href='/web/login?redirect=/product_catalog/checkout' class='btn btn-primary' style="margin-top: -11px">Log In</a>
                                     </h2>
                                 </t>
                                 <t t-if="mode == ('edit', 'billing')">
@@ -1341,14 +1326,14 @@
                                         <h4 class="alert-heading">Be aware!</h4>
                                         <p  groups="sale.group_delivery_invoice_address">
                                             You are editing your <b>billing and shipping</b> addresses at the same time!<br/>
-                                            If you want to modify your shipping address, create a <a href='/shop/address'>new address</a>.
+                                            If you want to modify your shipping address, create a <a href='/product_catalog/address'>new address</a>.
                                         </p>
                                     </div>
                                 </t>
                                 <t t-if="error" t-foreach="error.get('error_message', [])" t-as="err">
                                     <h5 class="text-danger" t-esc="err" />
                                 </t>
-                                <form action="/shop/address" method="post" class="checkout_autoformat">
+                                <form action="/product_catalog/address" method="post" class="checkout_autoformat">
                                     <div class="form-row">
                                         <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
                                             <label class="col-form-label" for="name">Name</label>
@@ -1436,7 +1421,7 @@
                                     <input type="hidden" name="field_required" t-att-value="'phone,name'" />
 
                                     <div class="d-flex justify-content-between">
-                                        <a role="button" t-att-href="mode == ('new', 'billing') and '/shop/cart' or '/shop/checkout'" class="btn btn-secondary mb32">
+                                        <a role="button" t-att-href="mode == ('new', 'billing') and '/product_catalog/cart' or '/product_catalog/checkout'" class="btn btn-secondary mb32">
                                             <i class="fa fa-chevron-left"/>
                                             <span>Back</span>
                                         </a>
@@ -1501,7 +1486,7 @@
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <div class="card">
                                 <div class="card-body" id="shipping_and_billing">
-                                    <a class='float-right no-decoration' href='/shop/checkout'><i class="fa fa-edit"/> Edit</a>
+                                    <a class='float-right no-decoration' href='/product_catalog/checkout'><i class="fa fa-edit"/> Edit</a>
                                     <t t-set="same_shipping" t-value="bool(order.partner_shipping_id==order.partner_id or only_services)" />
                                     <div><b>Billing<t t-if="same_shipping and not only_services"> &amp; Shipping</t>: </b><span t-esc='order.partner_id' t-options="dict(widget='contact', fields=['address'], no_marker=True, separator=', ')" class="address-inline"/></div>
                                     <div t-if="not same_shipping and not only_services" groups="sale.group_delivery_invoice_address"><b>Shipping: </b><span t-esc='order.partner_shipping_id' t-options="dict(widget='contact', fields=['address'], no_marker=True, separator=', ')"  class="address-inline"/></div>
@@ -1519,14 +1504,14 @@
                                     <t t-set="icon_class" t-value="'fa-chevron-right'"/>
                                     <t t-set="submit_class" t-value="'btn btn-primary'"/>
                                     <t t-set="pms" t-value="tokens"/>
-                                    <t t-set="form_action" t-value="'/shop/payment/token'"/>
-                                    <t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>
+                                    <t t-set="form_action" t-value="'/product_catalog/payment/token'"/>
+                                    <t t-set="prepare_tx_url" t-value="'/product_catalog/payment/transaction/'"/>
                                     <t t-set="partner_id" t-value="partner"/>
 
                                     <t t-set="back_button_icon_class" t-value="'fa-chevron-left'"/>
                                     <t t-set="back_button_txt">Return to Cart</t>
                                     <t t-set="back_button_class" t-value="'btn btn-secondary'"/>
-                                    <t t-set="back_button_link" t-value="'/shop/cart'"/>
+                                    <t t-set="back_button_link" t-value="'/product_catalog/cart'"/>
                                 </t>
                             </div>
                             <div t-if="not (acquirers or tokens)" class="alert alert-warning">
@@ -1542,7 +1527,7 @@
                                 </a>
                             </div>
                             <div class="js_payment mt-3" t-if="not website_sale_order.amount_total" id="payment_method">
-                                <form target="_self" action="/shop/payment/validate" method="post" class="float-right">
+                                <form target="_self" action="/product_catalog/payment/validate" method="post" class="float-right">
                                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                     <a role="button" class="btn btn-primary a-submit" href="#">
                                         <span t-if="order.amount_total &gt; 0">Pay Now <span class="fa fa-chevron-right"></span></span>
@@ -1568,7 +1553,7 @@
                     <t t-call="website_sale.total">
                         <t t-set="no_rowspan" t-value="1"/>
                     </t>
-                    <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-secondary float-right d-none d-xl-inline-block" href="/shop/checkout?express=1">
+                    <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-secondary float-right d-none d-xl-inline-block" href="/product_catalog/checkout?express=1">
                         <span>Process Checkout</span>
                     </a>
                 </div>
@@ -1622,7 +1607,7 @@
                         </tbody>
                     </table>
                     <t t-call="website_sale.total">
-                        <t t-set='redirect' t-value="redirect or '/shop/payment'"></t>
+                        <t t-set='redirect' t-value="redirect or '/product_catalog/payment'"></t>
                     </t>
                 </div>
             </div>
@@ -1634,7 +1619,7 @@
             <div class="custom-control custom-checkbox float-right mt-2 oe_accept_cgv_button">
                 <input type="checkbox" id="checkbox_cgv" class="custom-control-input"/>
                 <label for="checkbox_cgv" class="custom-control-label">
-                    I agree to the <a target="_BLANK" href="/shop/terms">terms &amp; conditions</a>
+                    I agree to the <a target="_BLANK" href="/product_catalog/terms">terms &amp; conditions</a>
                 </label>
             </div>
         </xpath>
@@ -1654,7 +1639,7 @@
                                 <t t-if="payment_tx_id.state == 'done'">
                                     <div class="thanks_msg">
                                         <h2>Thank you for your order.
-                                            <a role="button" class="btn btn-primary d-none d-md-inline-block" href="/shop/print" target="_blank" aria-label="Print" title="Print"><i class="fa fa-print"></i> Print</a>
+                                            <a role="button" class="btn btn-primary d-none d-md-inline-block" href="/product_catalog/print" target="_blank" aria-label="Print" title="Print"><i class="fa fa-print"></i> Print</a>
                                         </h2>
                                     </div>
                                 </t>
@@ -1809,16 +1794,6 @@
                 </t>
                 <t t-set="_utm_medium" t-valuef="website"/>
             </t>
-        </xpath>
-    </template>
-
-    <!-- User Navbar -->
-    <template id="user_navbar_inherit_website_sale" inherit_id="website.user_navbar">
-        <xpath expr="//div[@id='o_new_content_menu_choices']//div[@name='module_website_sale']" position="attributes">
-            <attribute name="name"/>
-            <attribute name="t-att-data-module-id"/>
-            <attribute name="t-att-data-module-shortdesc"/>
-            <attribute name="groups">sales_team.group_sale_manager</attribute>
         </xpath>
     </template>
 

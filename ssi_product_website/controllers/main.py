@@ -144,22 +144,22 @@ class ProductWebsite(http.Controller):
         return expression.AND(domains)
 
     def sitemap_shop(env, rule, qs):
-        if not qs or qs.lower() in '/shop':
-            yield {'loc': '/shop'}
+        if not qs or qs.lower() in '/product_catalog':
+            yield {'loc': '/product_catalog'}
 
         Category = env['product.public.category']
-        dom = sitemap_qs2dom(qs, '/shop/category', Category._rec_name)
+        dom = sitemap_qs2dom(qs, '/product_catalog/category', Category._rec_name)
         dom += env['website'].get_current_website().website_domain()
         for cat in Category.search(dom):
-            loc = '/shop/category/%s' % slug(cat)
+            loc = '/product_catalog/category/%s' % slug(cat)
             if not qs or qs.lower() in loc:
                 yield {'loc': loc}
 
     @http.route([
         '''/product_catalog''',
-        '''/shop/page/<int:page>''',
-        '''/shop/category/<model("product.public.category"):category>''',
-        '''/shop/category/<model("product.public.category"):category>/page/<int:page>'''
+        '''/product_catalog/page/<int:page>''',
+        '''/product_catalog/category/<model("product.public.category"):category>''',
+        '''/product_catalog/category/<model("product.public.category"):category>/page/<int:page>'''
     ], type='http', auth="public", website=True, sitemap=sitemap_shop)
     def shop(self, page=0, category=None, search='', ppg=False, **post):
         add_qty = int(post.get('add_qty', 1))
@@ -189,14 +189,14 @@ class ProductWebsite(http.Controller):
 
         domain = self._get_search_domain(search, category, attrib_values)
 
-        keep = QueryURL('/shop', category=category and int(category), search=search, attrib=attrib_list,
+        keep = QueryURL('/product_catalog', category=category and int(category), search=search, attrib=attrib_list,
                         order=post.get('order'))
 
         pricelist_context, pricelist = self._get_pricelist_context()
 
         request.context = dict(request.context, pricelist=pricelist.id, partner=request.env.user.partner_id)
 
-        url = "/shop"
+        url = "/product_catalog"
         if search:
             post["search"] = search
         if attrib_list:
@@ -216,7 +216,7 @@ class ProductWebsite(http.Controller):
         categs = Category.search(categs_domain)
 
         if category:
-            url = "/shop/category/%s" % slug(category)
+            url = "/product_catalog/category/%s" % slug(category)
 
         product_count = len(search_product)
         pager = request.website.pager(url=url, total=product_count, page=page, step=ppg, scope=7, url_args=post)
@@ -259,4 +259,60 @@ class ProductWebsite(http.Controller):
         }
         if category:
             values['main_object'] = category
-        return request.render("website_sale.products", values)
+        return request.render("ssi_product_website.products", values)
+
+    @http.route(['/product_catalog/<model("product.template"):product>'], type='http', auth="public", website=True, sitemap=True)
+    def product(self, product, category='', search='', **kwargs):
+        if not product.can_access_from_current_website():
+            raise NotFound()
+
+        return request.render("ssi_product_website.product", self._prepare_product_values(product, category, search, **kwargs))
+
+    @http.route(['/product_catalog/product/<model("product.template"):product>'], type='http', auth="public", website=True,
+                sitemap=False)
+    def old_product(self, product, category='', search='', **kwargs):
+        # Compatibility pre-v14
+        return request.redirect(_build_url_w_params("/product_catalog/%s" % slug(product), request.params), code=301)
+
+    def _prepare_product_values(self, product, category, search, **kwargs):
+        add_qty = int(kwargs.get('add_qty', 1))
+
+        product_context = dict(request.env.context, quantity=add_qty,
+                               active_id=product.id,
+                               partner=request.env.user.partner_id)
+        ProductCategory = request.env['product.public.category']
+
+        if category:
+            category = ProductCategory.browse(int(category)).exists()
+
+        attrib_list = request.httprequest.args.getlist('attrib')
+        attrib_values = [[int(x) for x in v.split("-")] for v in attrib_list if v]
+        attrib_set = {v[1] for v in attrib_values}
+
+        keep = QueryURL('/product_catalog', category=category and category.id, search=search, attrib=attrib_list)
+
+        categs = ProductCategory.search([('parent_id', '=', False)])
+
+        pricelist = request.website.get_current_pricelist()
+
+        if not product_context.get('pricelist'):
+            product_context['pricelist'] = pricelist.id
+            product = product.with_context(product_context)
+
+        # Needed to trigger the recently viewed product rpc
+        view_track = request.website.viewref("ssi_product_website.product").track
+
+        return {
+            'search': search,
+            'category': category,
+            'pricelist': pricelist,
+            'attrib_values': attrib_values,
+            'attrib_set': attrib_set,
+            'keep': keep,
+            'categories': categs,
+            'main_object': product,
+            'product': product,
+            'add_qty': add_qty,
+            'view_track': view_track,
+        }
+
