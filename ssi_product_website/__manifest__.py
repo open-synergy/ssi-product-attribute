@@ -13,8 +13,10 @@
     "depends": [
         "ssi_product",
         "website",
+        "sale",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "data/data.xml",
         "views/templates.xml",
     ],
