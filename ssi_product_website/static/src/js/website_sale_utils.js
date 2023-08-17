@@ -53,8 +53,8 @@ function updateCartNavBar(data) {
         .hide()
         .fadeIn(600);
 
-    $(".js_cart_lines").first().before(data['website_sale.cart_lines']).end().remove();
-    $(".js_cart_summary").first().before(data['website_sale.short_cart_summary']).end().remove();
+    $(".js_cart_lines").first().before(data['ssi_product_website.cart_lines']).end().remove();
+    $(".js_cart_summary").first().before(data['ssi_product_website.short_cart_summary']).end().remove();
 }
 
 /**

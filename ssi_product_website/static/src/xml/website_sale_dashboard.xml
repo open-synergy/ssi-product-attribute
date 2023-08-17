@@ -3,19 +3,19 @@
     <t t-extend="website.dashboard_header">
         <t t-jquery="div.o_dashboard_common" t-operation="append">
             <div class="col-12 o_box" t-if="widget.dashboards_data.sales.summary.order_unpaid_count || widget.dashboards_data.sales.summary.order_to_invoice_count || widget.dashboards_data.sales.summary.payment_to_capture_count || widget.dashboards_data.sales.summary.order_carts_abandoned_count">
-                <div t-if="widget.dashboards_data.sales.summary.order_unpaid_count" class="o_inner_box o_dashboard_action" title="Confirm orders when you get paid." name="website_sale.action_unpaid_orders_ecommerce">
+                <div t-if="widget.dashboards_data.sales.summary.order_unpaid_count" class="o_inner_box o_dashboard_action" title="Confirm orders when you get paid." name="ssi_product_website.action_unpaid_orders_ecommerce">
                     <div class="o_highlight"><t t-esc="widget.dashboards_data.sales.summary.order_unpaid_count"/></div>
                     Unpaid Orders
                 </div>
-                <div t-if="widget.dashboards_data.sales.summary.order_to_invoice_count" class="o_inner_box o_dashboard_action" title="Generate an invoice from orders ready for invoicing." name="website_sale.sale_order_action_to_invoice">
+                <div t-if="widget.dashboards_data.sales.summary.order_to_invoice_count" class="o_inner_box o_dashboard_action" title="Generate an invoice from orders ready for invoicing." name="ssi_product_website.sale_order_action_to_invoice">
                     <div class="o_highlight"><t t-esc="widget.dashboards_data.sales.summary.order_to_invoice_count"/></div>
                     Orders to Invoice
                 </div>
-                <div t-if="widget.dashboards_data.sales.summary.payment_to_capture_count" class="o_inner_box o_dashboard_action" title="Capture order payments when the delivery is completed." name="website_sale.payment_transaction_action_payments_to_capture">
+                <div t-if="widget.dashboards_data.sales.summary.payment_to_capture_count" class="o_inner_box o_dashboard_action" title="Capture order payments when the delivery is completed." name="ssi_product_website.payment_transaction_action_payments_to_capture">
                     <div class="o_highlight"><t t-esc="widget.dashboards_data.sales.summary.payment_to_capture_count"/></div>
                     Payments to Capture
                 </div>
-                <div t-if="widget.dashboards_data.sales.summary.order_carts_abandoned_count" class="o_inner_box o_dashboard_action" title="Send a recovery email to visitors who haven't completed their order." name="website_sale.action_view_abandoned_tree">
+                <div t-if="widget.dashboards_data.sales.summary.order_carts_abandoned_count" class="o_inner_box o_dashboard_action" title="Send a recovery email to visitors who haven't completed their order." name="ssi_product_website.action_view_abandoned_tree">
                     <div class="o_highlight"><t t-esc="widget.dashboards_data.sales.summary.order_carts_abandoned_count"/></div>
                     Abandoned Carts
                 </div>
@@ -45,7 +45,7 @@
                             <div class="o_graph_sales" data-type="sales"/>
                         </div>
                         <div class="col-lg-5 col-12">
-                            <t t-call="website_sale.products_table"/>
+                            <t t-call="ssi_product_website.products_table"/>
                         </div>
                     </t>
                     <t t-if="! widget.dashboards_data.sales.summary.order_count">
@@ -72,9 +72,9 @@
         </t>
     </t>
 
-    <t t-name="website_sale.products_table">
+    <t t-name="ssi_product_website.products_table">
         <div class="row">
-            <a href="#" class="col-md-4 o_dashboard_action" name="website_sale.sale_report_action_dashboard">
+            <a href="#" class="col-md-4 o_dashboard_action" name="ssi_product_website.sale_report_action_dashboard">
                 <div class="o_link_enable" title="Orders">
                     <div class="o_highlight">
                         <t t-esc="widget.dashboards_data.sales.summary.order_count"/>
@@ -82,7 +82,7 @@
                     Orders
                 </div>
             </a>
-            <a href="#" class="col-md-4 o_dashboard_action" name="website_sale.sale_report_action_dashboard">
+            <a href="#" class="col-md-4 o_dashboard_action" name="ssi_product_website.sale_report_action_dashboard">
                 <div class="o_link_enable" title="Untaxed Total Sold">
                     <div class="o_highlight">
                         <t t-esc="widget.render_monetary_field(widget.dashboards_data.sales.summary.total_sold, widget.data.currency)"/>
@@ -90,7 +90,7 @@
                     Sold
                 </div>
             </a>
-            <a href="#" class="col-md-4 o_dashboard_action" name="website_sale.sale_report_action_carts">
+            <a href="#" class="col-md-4 o_dashboard_action" name="ssi_product_website.sale_report_action_carts">
                 <div class="o_link_enable o_invisible_border" title="Carts">
                     <div class="o_highlight"><t t-esc="widget.dashboards_data.sales.summary.order_carts_count"/></div>
                     Carts
@@ -130,7 +130,7 @@
         </div>
     </t>
 
-    <t t-extend="website_sale.products_table">
+    <t t-extend="ssi_product_website.products_table">
         <t t-jquery=".o_top_margin .row .col-12" t-operation="attributes">
             <attribute name="class" value="col-lg-6 col-12" />
         </t>
@@ -138,17 +138,17 @@
             <div class="col-lg-6 col-12 o_dashboard_utms">
                 <div>
                     <h4 class="float-left">REVENUE BY</h4>
-                    <t t-call="website_sale.LinkTrackersDropDown"/>
+                    <t t-call="ssi_product_website.LinkTrackersDropDown"/>
                 </div>
                 <div class="o_utm_no_data_img">
-                    <img src="website_sale/static/src/img/website_sale_chart_demo.png" alt="There isn't any UTM tag detected in orders" class="utm_chart_image image-responsive mt8"/>
+                    <img src="ssi_product_website/static/src/img/website_sale_chart_demo.png" alt="There isn't any UTM tag detected in orders" class="utm_chart_image image-responsive mt8"/>
                 </div>
                 <div class="o_utm_data_graph"/>
             </div>
         </t>
     </t>
 
-    <t t-name="website_sale.LinkTrackersDropDown">
+    <t t-name="ssi_product_website.LinkTrackersDropDown">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle utm_dropdown ml4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="utm_button_name">Campaigns</span>
             </button>

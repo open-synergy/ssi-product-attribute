@@ -1,4 +1,4 @@
-odoo.define('website_sale.s_dynamic_snippet_products', function (require) {
+odoo.define('ssi_product_website.s_dynamic_snippet_products', function (require) {
 'use strict';
 
 const config = require('web.config');

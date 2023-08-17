@@ -232,7 +232,7 @@ class ProductWebsite(http.Controller):
 
         layout_mode = request.session.get('website_sale_shop_layout_mode')
         if not layout_mode:
-            if request.website.viewref('website_sale.products_list_view').active:
+            if request.website.viewref('ssi_product_website.products_list_view').active:
                 layout_mode = 'list'
             else:
                 layout_mode = 'grid'

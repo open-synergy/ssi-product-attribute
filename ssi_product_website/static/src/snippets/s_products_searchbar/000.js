@@ -1,4 +1,4 @@
-odoo.define('website_sale.s_products_searchbar', function (require) {
+odoo.define('ssi_product_website.s_products_searchbar', function (require) {
 'use strict';
 
 const concurrency = require('web.concurrency');
@@ -11,7 +11,7 @@ const { qweb } = require('web.core');
  */
 publicWidget.registry.productsSearchBar = publicWidget.Widget.extend({
     selector: '.o_wsale_products_searchbar_form',
-    xmlDependencies: ['/website_sale/static/src/xml/website_sale_utils.xml'],
+    xmlDependencies: ['/ssi_product_website/static/src/xml/website_sale_utils.xml'],
     events: {
         'input .search-query': '_onInput',
         'focusout': '_onFocusOut',
@@ -104,7 +104,7 @@ publicWidget.registry.productsSearchBar = publicWidget.Widget.extend({
         this.$el.toggleClass('dropdown show', !!res);
         if (res) {
             var products = res['products'];
-            this.$menu = $(qweb.render('website_sale.productsSearchBar.autocomplete', {
+            this.$menu = $(qweb.render('ssi_product_website.productsSearchBar.autocomplete', {
                 products: products,
                 hasMoreProducts: products.length < res['products_count'],
                 currency: res['currency'],

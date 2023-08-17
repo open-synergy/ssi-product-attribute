@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
 <!-- Products Search Bar autocomplete item -->
-<div t-name="website_sale.productsSearchBar.autocomplete"
+<div t-name="ssi_product_website.productsSearchBar.autocomplete"
     class="dropdown-menu show w-100">
     <t t-if="!products.length">
         <!-- TODO adapt in master, this is patched in JS so that text-muted -->
@@ -40,7 +40,7 @@
 </div>
 
 <!-- Products Search Bar autocomplete item -->
-<we-button t-name="website_sale.ribbonSelectItem" t-att-data-set-ribbon="ribbon.id">
+<we-button t-name="ssi_product_website.ribbonSelectItem" t-att-data-set-ribbon="ribbon.id">
     <t t-raw="ribbon.html"/>
     <span t-attf-class="fa fa-#{isTag ? 'tag' : 'bookmark'} ml-auto"></span>
     <span t-attf-class="fa fa-arrow-#{isLeft ? 'left' : 'right'} ml-1"></span>

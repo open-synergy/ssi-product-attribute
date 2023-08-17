@@ -5,13 +5,13 @@ var config = require('web.config');
 var core = require('web.core');
 var publicWidget = require('web.public.widget');
 var utils = require('web.utils');
-var wSaleUtils = require('website_sale.utils');
+var wSaleUtils = require('ssi_product_website.utils');
 
 var qweb = core.qweb;
 
 publicWidget.registry.productsRecentlyViewedSnippet = publicWidget.Widget.extend({
     selector: '.s_wsale_products_recently_viewed',
-    xmlDependencies: ['/website_sale/static/src/xml/website_sale_recently_viewed.xml'],
+    xmlDependencies: ['/ssi_product_website/static/src/xml/website_sale_recently_viewed.xml'],
     disabledInEditableMode: false,
     read_events: {
         'click .js_add_cart': '_onAddToCart',
@@ -108,12 +108,12 @@ publicWidget.registry.productsRecentlyViewedSnippet = publicWidget.Widget.extend
             webProducts.push(productsTemp);
         }
 
-        this.mobileCarousel = $(qweb.render('website_sale.productsRecentlyViewed', {
+        this.mobileCarousel = $(qweb.render('ssi_product_website.productsRecentlyViewed', {
             uniqueId: this.uniqueId,
             productFrame: 1,
             productsGroups: mobileProducts,
         }));
-        this.webCarousel = $(qweb.render('website_sale.productsRecentlyViewed', {
+        this.webCarousel = $(qweb.render('ssi_product_website.productsRecentlyViewed', {
             uniqueId: this.uniqueId,
             productFrame: 4,
             productsGroups: webProducts,

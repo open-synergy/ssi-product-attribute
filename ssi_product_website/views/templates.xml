@@ -27,7 +27,7 @@
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/sale/static/src/js/variant_mixin.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/variant_mixin.js"></script>
-            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/ssi_product_website.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_utils.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_payment.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_validate.js"></script>
@@ -45,7 +45,7 @@
 
     <template id="assets_editor" inherit_id="website.assets_editor" name="Shop Editor">
         <xpath expr="//script[last()]" position="after">
-            <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale.editor.js"></script>
+            <script type="text/javascript" src="/ssi_product_website/static/src/js/ssi_product_website.editor.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/website_sale_form_editor.js"></script>
             <script type="text/javascript" src="/ssi_product_website/static/src/js/tours/website_sale_shop_frontend.js"></script>
         </xpath>
@@ -86,7 +86,7 @@
         </li>
     </template>
 
-    <template id="header_hide_empty_cart_link" inherit_id="website_sale.header_cart_link" name="Header Hide Empty Cart link" active="False">
+    <template id="header_hide_empty_cart_link" inherit_id="ssi_product_website.header_cart_link" name="Header Hide Empty Cart link" active="False">
         <xpath expr="//t[@t-set='show_cart']" position="after">
             <t t-set="show_cart" t-value="show_cart and website_sale_order and website_sale_order.cart_quantity" />
         </xpath>
@@ -94,7 +94,7 @@
 
     <template id="template_header_default" inherit_id="website.template_header_default">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item mx-lg-3'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -104,7 +104,7 @@
 
     <template id="template_header_hamburger" inherit_id="website.template_header_hamburger">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_text" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -114,7 +114,7 @@
 
     <template id="template_header_vertical" inherit_id="website.template_header_vertical">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item ml-lg-3'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -124,7 +124,7 @@
 
     <template id="template_header_sidebar" inherit_id="website.template_header_sidebar">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_text" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
@@ -135,7 +135,7 @@
 
     <template id="template_header_slogan" inherit_id="website.template_header_slogan">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item ml-lg-auto'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -145,7 +145,7 @@
 
     <template id="template_header_contact" inherit_id="website.template_header_contact">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_text" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item ml-lg-3'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -155,7 +155,7 @@
 
     <template id="template_header_minimalist" inherit_id="website.template_header_minimalist">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
                 <t t-set="_link_class" t-value="'nav-link ml-3'"/>
@@ -165,7 +165,7 @@
 
     <template id="template_header_boxed" inherit_id="website.template_header_boxed">
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="before">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_text" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -175,7 +175,7 @@
 
     <template id="template_header_centered_logo" inherit_id="website.template_header_centered_logo">
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="before">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -185,7 +185,7 @@
 
     <template id="template_header_image" inherit_id="website.template_header_image">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item ml-lg-3'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -195,7 +195,7 @@
 
     <template id="template_header_hamburger_full" inherit_id="website.template_header_hamburger_full">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_icon" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item ml-lg-3'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -205,7 +205,7 @@
 
     <template id="template_header_magazine" inherit_id="website.template_header_magazine">
         <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
-            <t t-call="website_sale.header_cart_link">
+            <t t-call="ssi_product_website.header_cart_link">
                 <t t-set="_text" t-value="True"/>
                 <t t-set="_item_class" t-value="'nav-item'"/>
                 <t t-set="_link_class" t-value="'nav-link'"/>
@@ -234,7 +234,7 @@
     </template>
 
     <template id="search" name="Search Box">
-        <t t-call="website_sale.website_sale_products_search_box">
+        <t t-call="ssi_product_website.website_sale_products_search_box">
             <t t-set="action" t-value="keep('/product_catalog'+ ('/category/'+slug(category)) if category else None, search=0)"/>
             <t t-if="attrib_values">
                 <t t-foreach="attrib_values" t-as="a">
@@ -289,7 +289,7 @@
         </form>
     </template>
 
-    <template id="products_description" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Product Description">
+    <template id="products_description" inherit_id="ssi_product_website.products_item" active="False" customize_show="True" name="Product Description">
         <xpath expr="//*[hasclass('product_price')]" position="after">
             <div class="oe_subdescription" contenteditable="false">
                 <div itemprop="description" t-field="product.description_sale"/>
@@ -297,7 +297,7 @@
         </xpath>
     </template>
 
-    <template id="products_add_to_cart" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Add to Cart">
+    <template id="products_add_to_cart" inherit_id="ssi_product_website.products_item" active="False" customize_show="True" name="Add to Cart">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
             <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
             <input name="product_id" t-att-value="product_variant_id" type="hidden"/>
@@ -334,10 +334,10 @@
                 <div class="oe_structure oe_empty" id="oe_structure_website_sale_products_1"/>
                 <div class="container oe_website_sale">
                     <div class="products_pager form-inline flex-md-nowrap justify-content-between justify-content-md-center">
-                        <t t-call="website_sale.search">
+                        <t t-call="ssi_product_website.search">
                             <t t-set="_classes" t-valuef="w-100 w-md-auto mt-2"/>
                         </t>
-                        <t t-call="website_sale.pricelist_list">
+                        <t t-call="ssi_product_website.pricelist_list">
                             <t t-set="_classes" t-valuef="mt-2 ml-md-2"/>
                         </t>
                         <t t-call="website.pager">
@@ -405,13 +405,13 @@
     </template>
 
     <!-- (Option) Products: Enable image full for all products : Images Full -->
-    <template id="products_images_full" name="Images Full" inherit_id="website_sale.products" active="False" customize_show="True">
+    <template id="products_images_full" name="Images Full" inherit_id="ssi_product_website.products" active="False" customize_show="True">
         <xpath expr="//t[@t-foreach='tr_product']//td" position="attributes">
             <attribute name="t-attf-class" add="oe_image_full" separator=" "/>
         </xpath>
     </template>
 
-    <template id="sort" inherit_id="website_sale.products" customize_show="True" name="Show Sort by">
+    <template id="sort" inherit_id="ssi_product_website.products" customize_show="True" name="Show Sort by">
         <xpath expr="//div[hasclass('products_pager')]/t[@t-call][last()]" position="after">
             <t t-set="list_price_desc_label">Catalog price: High to Low</t>
             <t t-set="list_price_asc_label">Catalog price: Low to High</t>
@@ -447,7 +447,7 @@
         </xpath>
     </template>
 
-    <template id="add_grid_or_list_option" inherit_id="website_sale.products" active="True" customize_show="True" name="Grid or List button">
+    <template id="add_grid_or_list_option" inherit_id="ssi_product_website.products" active="True" customize_show="True" name="Grid or List button">
         <xpath expr="//div[hasclass('products_pager')]/t[@t-call][last()]" position="after">
             <div class="btn-group btn-group-toggle mt-2 ml-md-2 d-none d-sm-inline-flex o_wsale_apply_layout" data-toggle="buttons">
                 <label t-attf-class="btn btn-secondary #{'active' if layout_mode != 'list' else None} fa fa-th-large o_wsale_apply_grid" title="Grid">
@@ -469,14 +469,14 @@
             <ul t-if="c.child_id" class="nav nav-pills flex-column nav-hierarchy">
                 <t t-foreach="c.child_id" t-as="c">
                     <t t-if="not search or c.id in search_categories_ids">
-                        <t t-call="website_sale.categories_recursive" />
+                        <t t-call="ssi_product_website.categories_recursive" />
                     </t>
                 </t>
             </ul>
         </li>
     </template>
 
-    <template id="products_categories" inherit_id="website_sale.products" active="False" customize_show="True" name="eCommerce Categories">
+    <template id="products_categories" inherit_id="ssi_product_website.products" active="False" customize_show="True" name="eCommerce Categories">
         <xpath expr="//div[@id='products_grid_before']" position="before">
             <t t-set="enable_left_column" t-value="True"/>
         </xpath>
@@ -491,7 +491,7 @@
                         <a t-att-href="keep('/product_catalog', category=0)" t-attf-class="nav-link #{'' if category else 'active'} o_not_editable">All Products</a>
                     </li>
                     <t t-foreach="categories" t-as="c">
-                        <t t-call="website_sale.categories_recursive" />
+                        <t t-call="ssi_product_website.categories_recursive" />
                     </t>
                 </ul>
             </div>
@@ -507,22 +507,22 @@
             <a t-att-href="keep('/product_catalog/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
             <ul t-if="children" class="nav nav-pills flex-column nav-hierarchy" t-att-style="'display:block;' if c.id in category.parents_and_self.ids else 'display:none;'">
                 <t t-foreach="children" t-as="c">
-                    <t t-call="website_sale.option_collapse_categories_recursive"/>
+                    <t t-call="ssi_product_website.option_collapse_categories_recursive"/>
                 </t>
             </ul>
         </li>
     </template>
 
-    <template id="option_collapse_products_categories" name="Collapsible Category List" inherit_id="website_sale.products_categories" active="False" customize_show="True">
+    <template id="option_collapse_products_categories" name="Collapsible Category List" inherit_id="ssi_product_website.products_categories" active="False" customize_show="True">
         <xpath expr="//div[@id='wsale_products_categories_collapse']/ul" position="attributes">
             <attribute name="id">o_shop_collapse_category</attribute>
         </xpath>
-        <xpath expr="//t[@t-call='website_sale.categories_recursive']" position="attributes">
-            <attribute name="t-call">website_sale.option_collapse_categories_recursive</attribute>
+        <xpath expr="//t[@t-call='ssi_product_website.categories_recursive']" position="attributes">
+            <attribute name="t-call">ssi_product_website.option_collapse_categories_recursive</attribute>
         </xpath>
     </template>
 
-    <template id="products_attributes" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Attribute's Filters">
+    <template id="products_attributes" inherit_id="ssi_product_website.products" active="False" customize_show="True" name="Product Attribute's Filters">
         <xpath expr="//div[@id='products_grid_before']" position="before">
             <t t-set="enable_left_column" t-value="True"/>
         </xpath>
@@ -577,7 +577,7 @@
         </xpath>
     </template>
 
-    <template id="products_list_view" inherit_id="website_sale.products" active="False" customize_show="True" name="List View (by default)">
+    <template id="products_list_view" inherit_id="ssi_product_website.products" active="False" customize_show="True" name="List View (by default)">
         <xpath expr="//div[@id='products_grid']" position="after">
             <!-- Nothing to do, this view is only meant to allow the server -->
             <!-- to know if the list view layout should be used -->
@@ -587,7 +587,7 @@
     <!-- /product_catalog/product page -->
     <template id="product_edit_options" inherit_id="website.user_navbar" name="Edit Product Options">
         <xpath expr="//li[@id='edit-page-menu']" position="after">
-            <t t-if="main_object._name == 'product.template'" t-set="action" t-value="'website_sale.product_template_action_website'" />
+            <t t-if="main_object._name == 'product.template'" t-set="action" t-value="'ssi_product_website.product_template_action_website'" />
         </xpath>
     </template>
 
@@ -617,10 +617,10 @@
                         </div>
                         <div class="col-md-8">
                             <div class="form-inline justify-content-end">
-                                <t t-call="website_sale.search">
+                                <t t-call="ssi_product_website.search">
                                     <t t-set="search" t-value="False"/>
                                 </t>
-                                <t t-call="website_sale.pricelist_list">
+                                <t t-call="ssi_product_website.pricelist_list">
                                     <t t-set="_classes" t-valuef="ml-2"/>
                                 </t>
                             </div>
@@ -628,7 +628,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-8">
-                            <t t-call="website_sale.shop_product_carousel"/>
+                            <t t-call="ssi_product_website.shop_product_carousel"/>
                         </div>
                         <div class="col-md-6 col-xl-4" id="product_details">
                             <t t-set="base_url" t-value="product.get_base_url()"/>
@@ -637,7 +637,7 @@
                             <form>
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <div class="js_product js_main_product">
-                                    <t t-call="website_sale.product_price" />
+                                    <t t-call="ssi_product_website.product_price" />
                                     <p t-if="True" class="css_not_available_msg alert alert-warning">This combination does not exist.</p>
                                     <div id="product_option_block"/>
                                 </div>
@@ -668,23 +668,13 @@
         </t>
     </template>
 
-    <template id="product_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions">
-        <xpath expr="//div[@id='product_details']" position="inside">
-            <p class="text-muted">
-                <a href="/product_catalog/terms">Terms and Conditions</a><br/>
-                30-day money-back guarantee<br/>
-                Shipping: 2-3 Business Days
-            </p>
-        </xpath>
-    </template>
-
-    <template inherit_id='website_sale.product' id="product_picture_magnify" customize_show="True" name="Image Zoom">
+    <template inherit_id='ssi_product_website.product' id="product_picture_magnify" customize_show="True" name="Image Zoom">
         <xpath expr='//div[hasclass("js_sale")]' position='attributes'>
             <attribute name="class" separator=" " add="ecom-zoomable zoomodoo-next" />
         </xpath>
     </template>
 
-    <template inherit_id='website_sale.product' id="product_picture_magnify_auto" active="False" customize_show="True" name="Automatic Image Zoom">
+    <template inherit_id='ssi_product_website.product' id="product_picture_magnify_auto" active="False" customize_show="True" name="Automatic Image Zoom">
         <xpath expr='//div[hasclass("js_sale")]' position='attributes'>
             <attribute name="data-ecom-zoom-auto">1</attribute>
             <attribute name="class" separator=" " add="ecom-zoomable zoomodoo-next" />
@@ -692,7 +682,7 @@
         </xpath>
     </template>
 
-    <template id="recommended_products" inherit_id="website_sale.product" customize_show="True" name="Alternative Products">
+    <template id="recommended_products" inherit_id="ssi_product_website.product" customize_show="True" name="Alternative Products">
         <xpath expr="//div[@id='product_full_description']" position="after">
             <div class="container mt32" t-if="product.alternative_product_ids">
                 <h3>Alternative Products:</h3>
@@ -717,14 +707,14 @@
         </xpath>
     </template>
 
-    <template id="recently_viewed_products_product" inherit_id="website_sale.product" active="False" customize_show="True" name="Recently Viewed Products" priority="16">
+    <template id="recently_viewed_products_product" inherit_id="ssi_product_website.product" active="False" customize_show="True" name="Recently Viewed Products" priority="16">
         <xpath expr="//div[@t-field='product.website_description']" position="after">
-            <t t-snippet-call="website_sale.s_products_recently_viewed"/>
+            <t t-snippet-call="ssi_product_website.s_products_recently_viewed"/>
         </xpath>
     </template>
 
     <!-- Product options: OpenChatter -->
-    <template id="product_comment" inherit_id="website_sale.product" active="False" customize_show="True" name="Discussion and Rating" priority="15">
+    <template id="product_comment" inherit_id="ssi_product_website.product" active="False" customize_show="True" name="Discussion and Rating" priority="15">
         <xpath expr="//div[@t-field='product.website_description']" position="after">
             <div class="o_shop_discussion_rating">
                 <section class="container mt16 mb16">
@@ -739,30 +729,6 @@
                     </div>
                 </section>
             </div>
-        </xpath>
-    </template>
-
-    <template id="product_quantity" inherit_id="website_sale.product" customize_show="True" name="Select Quantity">
-      <xpath expr="//a[@id='add_to_cart']" position="before">
-        <div class="css_quantity input-group" contenteditable="false">
-            <div class="input-group-prepend">
-                <a t-attf-href="#" class="btn btn-secondary js_add_cart_json" aria-label="Remove one" title="Remove one">
-                    <i class="fa fa-minus"></i>
-                </a>
-            </div>
-            <input type="text" class="form-control quantity" data-min="1" name="add_qty" t-att-value="add_qty or 1"/>
-            <div class="input-group-append">
-                <a t-attf-href="#" class="btn btn-secondary float_left js_add_cart_json" aria-label="Add one" title="Add one">
-                    <i class="fa fa-plus"></i>
-                </a>
-            </div>
-        </div>
-      </xpath>
-    </template>
-
-    <template id="product_buy_now" inherit_id="website_sale.product" active="False" customize_show="True" name="Buy Now Button">
-        <xpath expr="//a[@id='add_to_cart']" position="after">
-            <a role="button" id="buy_now" class="btn btn-outline-primary btn-lg mt16 d-block d-sm-inline-block" href="#"><i class="fa fa-bolt"/> Buy Now</a>
         </xpath>
     </template>
 
@@ -786,7 +752,7 @@
       </div>
     </template>
 
-    <template id="product_variants" inherit_id="website_sale.product" active="False" customize_show="True" name="List View of Variants">
+    <template id="product_variants" inherit_id="ssi_product_website.product" active="False" customize_show="True" name="List View of Variants">
         <xpath expr="//t[@t-placeholder='select']" position="replace">
             <!--
                 Using this setting with dynamic variants is not supported.
@@ -865,12 +831,12 @@
                 <div class="container oe_website_sale py-2">
                     <div class="row">
                         <div class="col-12">
-                            <t t-call="website_sale.wizard_checkout">
+                            <t t-call="ssi_product_website.wizard_checkout">
                                 <t t-set="step" t-value="30"/>
                             </t>
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary">
+                            <t t-call="ssi_product_website.cart_summary">
                                 <t t-set="redirect" t-valuef="/product_catalog/extra_info"/>
                             </t>
                         </div>
@@ -984,11 +950,11 @@
                         </td>
                         <td t-if="line.product_id.product_tmpl_id" class='td-product_name'>
                             <div>
-                                <t t-call="website_sale.cart_line_product_link">
+                                <t t-call="ssi_product_website.cart_line_product_link">
                                     <strong t-field="line.name_short" />
                                 </t>
                             </div>
-                            <t t-call="website_sale.cart_line_description_following_lines">
+                            <t t-call="ssi_product_website.cart_line_description_following_lines">
                                 <t t-set="div_class" t-value="'d-none d-md-block'"/>
                             </t>
                         </td>
@@ -1037,7 +1003,7 @@
                 <div class="container oe_website_sale py-2">
                     <div class="row">
                         <div class="col-12">
-                            <t t-call="website_sale.wizard_checkout">
+                            <t t-call="ssi_product_website.wizard_checkout">
                                 <t t-set="step" t-value="10" />
                             </t>
                         </div>
@@ -1058,7 +1024,7 @@
                                             </p>
                                         </t>
                                     </div>
-                                    <t t-call="website_sale.cart_lines" />
+                                    <t t-call="ssi_product_website.cart_lines" />
                                     <div class="clearfix" />
                                     <a role="button" href="/product_catalog" class="btn btn-secondary mb32 d-none d-xl-inline-block">
                                         <span class="fa fa-chevron-left" />
@@ -1073,7 +1039,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-xl-4" id="o_cart_summary">
-                            <t t-call="website_sale.short_cart_summary"/>
+                            <t t-call="ssi_product_website.short_cart_summary"/>
                             <div class="d-xl-none mt8">
                                 <a role="button" href="/product_catalog" class="btn btn-secondary mb32">
                                     <span class="fa fa-chevron-left" />
@@ -1105,7 +1071,7 @@
                     </div>
                     <div class="col-9">
                         <div>
-                            <t t-call="website_sale.cart_line_product_link">
+                            <t t-call="ssi_product_website.cart_line_product_link">
                                 <span class="h6" t-esc="line.name_short" />
                             </t>
                         </div>
@@ -1115,7 +1081,7 @@
             </t>
             <div class="text-center">
                 <span class="h6">
-                    <t t-call="website_sale.total">
+                    <t t-call="ssi_product_website.total">
                         <t t-set="hide_coupon" t-value="True"/>
                     </t>
                 </span>
@@ -1126,7 +1092,7 @@
         </t>
     </template>
 
-    <template id="suggested_products_list" inherit_id="website_sale.cart_lines" customize_show="True" name="Accessory Products in my cart">
+    <template id="suggested_products_list" inherit_id="ssi_product_website.cart_lines" customize_show="True" name="Accessory Products in my cart">
         <xpath expr="//table[@id='cart_products']" position="after">
             <h5 class='text-muted js_cart_lines' t-if="suggested_products">Suggested Accessories:</h5>
             <table t-if="suggested_products" id="suggested_products" class="js_cart_lines table table-striped table-sm">
@@ -1187,12 +1153,12 @@
                     <t t-set="same_shipping" t-value="bool(order.partner_shipping_id==order.partner_id or only_services)" />
                     <div class="row">
                         <div class="col-12">
-                            <t t-call="website_sale.wizard_checkout">
+                            <t t-call="ssi_product_website.wizard_checkout">
                                 <t t-set="step" t-value="20" />
                             </t>
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary">
+                            <t t-call="ssi_product_website.cart_summary">
                                 <t t-set="redirect" t-valuef="/product_catalog/checkout"/>
                             </t>
                         </div>
@@ -1202,7 +1168,7 @@
                                     <h3 class="o_page_header mt8">Billing Address</h3>
                                 </div>
                                 <div class="col-lg-6 one_kanban">
-                                    <t t-call="website_sale.address_kanban">
+                                    <t t-call="ssi_product_website.address_kanban">
                                         <t t-set='contact' t-value="order.partner_id"/>
                                         <t t-set='selected' t-value="1"/>
                                         <t t-set='readonly' t-value="1"/>
@@ -1229,7 +1195,7 @@
                                             </div>
                                             <t t-foreach="shippings" t-as="ship">
                                                 <div class="col-md-12 col-lg-6 one_kanban">
-                                                    <t t-call="website_sale.address_kanban">
+                                                    <t t-call="ssi_product_website.address_kanban">
                                                         <t t-set="actual_partner" t-value="order.partner_id" />
                                                         <t t-set='contact' t-value="ship"/>
                                                         <t t-set='selected' t-value="order.partner_shipping_id==ship"/>
@@ -1295,14 +1261,14 @@
                 <div class="container oe_website_sale py-2">
                     <div class="row">
                         <div class="col-12">
-                            <t t-call="website_sale.wizard_checkout">
+                            <t t-call="ssi_product_website.wizard_checkout">
                                 <t t-set="step" t-value="20" />
                             </t>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
-                            <t t-call="website_sale.cart_summary">
+                            <t t-call="ssi_product_website.cart_summary">
                                 <t t-set="hide_coupon">True</t>
                                 <t t-set="redirect" t-valuef="/product_catalog/address"/>
                             </t>
@@ -1466,7 +1432,7 @@
                 <div class="container oe_website_sale py-2">
                     <div class="row">
                         <div class='col-12'>
-                            <t t-call="website_sale.wizard_checkout">
+                            <t t-call="ssi_product_website.wizard_checkout">
                                 <t t-set="step" t-value="40" />
                             </t>
                         </div>
@@ -1481,7 +1447,7 @@
                             </t>
                         </div>
                         <div class="col-12 col-xl-auto order-xl-2">
-                            <t t-call="website_sale.cart_summary"/>
+                            <t t-call="ssi_product_website.cart_summary"/>
                         </div>
                         <div class="col-12 col-xl order-xl-1 oe_cart">
                             <div class="card">
@@ -1550,7 +1516,7 @@
                 <h4 class="d-none d-xl-block">Order Total</h4>
                 <hr class="d-none d-xl-block"/>
                 <div>
-                    <t t-call="website_sale.total">
+                    <t t-call="ssi_product_website.total">
                         <t t-set="no_rowspan" t-value="1"/>
                     </t>
                     <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-secondary float-right d-none d-xl-inline-block" href="/product_catalog/checkout?express=1">
@@ -1606,7 +1572,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <t t-call="website_sale.total">
+                    <t t-call="ssi_product_website.total">
                         <t t-set='redirect' t-value="redirect or '/product_catalog/payment'"></t>
                     </t>
                 </div>
@@ -1669,7 +1635,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <t t-call="website_sale.payment_confirmation_status"/>
+                                <t t-call="ssi_product_website.payment_confirmation_status"/>
                                 <div class="card mt-3">
                                   <div class="card-body">
                                     <t t-set="same_shipping" t-value="bool(order.partner_shipping_id==order.partner_id or only_services)" />
@@ -1682,7 +1648,7 @@
                         </div>
                         <div class="col-12 col-xl-auto">
                             <t t-set="website_sale_order" t-value="order"/>
-                            <t t-call="website_sale.cart_summary">
+                            <t t-call="ssi_product_website.cart_summary">
                                 <t t-set="hide_coupon" t-value="1"/>
                             </t>
                         </div>
@@ -1724,7 +1690,7 @@
         </div>
     </template>
 
-    <template id="reduction_code" inherit_id="website_sale.total" customize_show="True" name="Promo Code">
+    <template id="reduction_code" inherit_id="ssi_product_website.total" customize_show="True" name="Promo Code">
         <xpath expr="//div[@id='cart_total']//table/tr[last()]" position="after">
             <tr t-if="not hide_coupon">
                 <td colspan="3" class="text-center text-xl-right border-0">
@@ -1734,7 +1700,7 @@
                         <a href="#" class="show_coupon">I have a promo code</a>
                     </t>
                     <div t-attf-class="coupon_form #{not force_coupon and 'd-none'}">
-                        <t t-call="website_sale.coupon_form"/>
+                        <t t-call="ssi_product_website.coupon_form"/>
                     </div>
                 </span>
                 </td>
@@ -1786,7 +1752,7 @@
         </div>
     </template>
 
-    <template id="website_sale.brand_promotion" inherit_id="website.brand_promotion">
+    <template id="ssi_product_website.brand_promotion" inherit_id="website.brand_promotion">
         <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
             <t t-call="web.brand_promotion_message">
                 <t t-set="_message">
@@ -1849,7 +1815,7 @@
         </t>
     </template>
 
-    <template id="website_sale.shop_product_carousel" name="Shop Product Carousel">
+    <template id="ssi_product_website.shop_product_carousel" name="Shop Product Carousel">
         <t t-set="product_images" t-value="product_variant._get_images() if product_variant else product._get_images()"/>
         <div id="o-carousel-product" class="carousel slide" data-ride="carousel" data-interval="0">
             <div class="carousel-outer position-relative">
@@ -1885,7 +1851,7 @@
 
 
     <record id="view_website_sale_website_form" model="ir.ui.view">
-        <field name="name">website_sale.website.form</field>
+        <field name="name">ssi_product_website.website.form</field>
         <field name="model">website</field>
         <field name="inherit_id" ref="website.view_website_form"/>
         <field name="arch" type="xml">
@@ -1902,7 +1868,7 @@
         </field>
     </record>
 
-    <template id="ecom_show_extra_fields" inherit_id="website_sale.product" active="False" customize_show="True" name="Show Extra Fields">
+    <template id="ecom_show_extra_fields" inherit_id="ssi_product_website.product" active="False" customize_show="True" name="Show Extra Fields">
         <xpath expr="//div[@id='product_details']" position="inside">
             <hr/>
             <p class="text-muted">

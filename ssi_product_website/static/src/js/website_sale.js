@@ -150,7 +150,7 @@ var core = require('web.core');
 var config = require('web.config');
 var publicWidget = require('web.public.widget');
 var VariantMixin = require('sale.VariantMixin');
-var wSaleUtils = require('website_sale.utils');
+var wSaleUtils = require('ssi_product_website.utils');
 const wUtils = require('website.utils');
 require("web.zoomodoo");
 
