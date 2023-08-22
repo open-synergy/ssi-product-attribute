@@ -273,12 +273,6 @@
                         <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
                         <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </h6>
-                    <div class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
-                        <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
-                        <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
-                        <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
-                        <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
-                    </div>
                 </div>
                 <div class="o_wsale_product_btn"/>
             </div>
@@ -289,8 +283,19 @@
         </form>
     </template>
 
+    <template id="product_price_hideable" inherit_id="ssi_product_website.products_item" active="False" customize_show="True" name="Product Price">
+        <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
+            <div class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+            </div>
+        </xpath>
+    </template>
+
     <template id="products_description" inherit_id="ssi_product_website.products_item" active="False" customize_show="True" name="Product Description">
-        <xpath expr="//*[hasclass('product_price')]" position="after">
+        <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
             <div class="oe_subdescription" contenteditable="false">
                 <div itemprop="description" t-field="product.description_sale"/>
             </div>
