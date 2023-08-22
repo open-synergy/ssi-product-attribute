@@ -213,6 +213,7 @@ class ProductTemplate(models.Model):
         string='Website Product Category',
         help="The product will be available in each mentioned eCommerce category. Go to Shop > "
              "Customize and enable 'eCommerce categories' to view all eCommerce categories.")
+    is_published = fields.Boolean(default=True)
 
     product_template_image_ids = fields.One2many('product.image', 'product_tmpl_id', string="Extra Product Media", copy=True)
 
