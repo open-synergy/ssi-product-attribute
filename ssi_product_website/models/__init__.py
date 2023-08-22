@@ -7,7 +7,7 @@ from . import product_image
 from . import product
 from . import res_country
 from . import res_partner
-from . import sale_order
+# from . import sale_order
 from . import website
 from . import res_config_settings
 from . import digest

@@ -13,7 +13,7 @@
     "depends": [
         "ssi_product",
         "website",
-        "sale",
+        # "sale",
     ],
     "data": [
         "security/ir.model.access.csv",
