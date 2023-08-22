@@ -37,7 +37,7 @@ class Website(models.Model):
     shop_ppg = fields.Integer(default=20, string="Number of products in the grid on the shop")
     shop_ppr = fields.Integer(default=4, string="Number of grid columns on the shop")
 
-    shop_extra_field_ids = fields.One2many('website.sale.extra.field', 'website_id', string='E-Commerce Extra Fields')
+    shop_extra_field_ids = fields.One2many('ssi.product.website.extra.field', 'website_id', string='E-Commerce Extra Fields')
 
     @api.depends('all_pricelist_ids')
     def _compute_pricelist_ids(self):
@@ -129,7 +129,7 @@ class Website(models.Model):
         partner_pl = partner.property_product_pricelist
         pricelists = website._get_pl_partner_order(isocountry, show_visible,
                                                    website.user_id.sudo().partner_id.property_product_pricelist.id,
-                                                   req and req.session.get('website_sale_current_pl') or None,
+                                                   req and req.session.get('ssi_product_website_current_pl') or None,
                                                    website.pricelist_ids,
                                                    partner_pl=partner_pl and partner_pl.id or None,
                                                    order_pl=last_order_pl and last_order_pl.id or None)
@@ -156,14 +156,14 @@ class Website(models.Model):
         available_pricelists = self.get_pricelist_available()
         pl = None
         partner = self.env.user.partner_id
-        if request and request.session.get('website_sale_current_pl'):
-            # `website_sale_current_pl` is set only if the user specifically chose it:
+        if request and request.session.get('ssi_product_website_current_pl'):
+            # `ssi_product_website_current_pl` is set only if the user specifically chose it:
             #  - Either, he chose it from the pricelist selection
             #  - Either, he entered a coupon code
-            pl = self.env['product.pricelist'].browse(request.session['website_sale_current_pl'])
+            pl = self.env['product.pricelist'].browse(request.session['ssi_product_website_current_pl'])
             if pl not in available_pricelists:
                 pl = None
-                request.session.pop('website_sale_current_pl')
+                request.session.pop('ssi_product_website_current_pl')
         if not pl:
             # If the user has a saved cart, it take the pricelist of this last unconfirmed cart
             pl = self.env['product.pricelist']
@@ -189,7 +189,7 @@ class Website(models.Model):
 
 
 class WebsiteSaleExtraField(models.Model):
-    _name = 'website.sale.extra.field'
+    _name = 'ssi.product.website.extra.field'
     _description = 'E-Commerce Extra Info Shown on product page'
     _order = 'sequence'
 

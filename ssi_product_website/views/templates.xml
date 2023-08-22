@@ -14,7 +14,7 @@
     </template>
 
     <!-- Products Search Bar input-group template -->
-    <template id="website_sale_products_search_box" inherit_id="website.website_search_box" primary="True">
+    <template id="ssi_product_website_products_search_box" inherit_id="website.website_search_box" primary="True">
         <xpath expr="//input[@name='search']" position="attributes">
             <attribute name="data-limit">5</attribute>
             <attribute name="data-display-description">true</attribute>
@@ -34,7 +34,7 @@
     </template>
 
     <template id="search" name="Search Box">
-        <t t-call="ssi_product_website.website_sale_products_search_box">
+        <t t-call="ssi_product_website.ssi_product_website_products_search_box">
             <t t-set="action" t-value="keep('/product_catalog'+ ('/category/'+slug(category)) if category else None, search=0)"/>
             <t t-if="attrib_values">
                 <t t-foreach="attrib_values" t-as="a">
@@ -97,14 +97,14 @@
     </template>
 
     <template id="pricelist_list" name="Pricelists Dropdown">
-        <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)" />
-        <div t-attf-class="dropdown#{'' if website_sale_pricelists and len(website_sale_pricelists)&gt;1 else ' d-none'} #{_classes}">
+        <t t-set="ssi_product_website_pricelists" t-value="website.get_pricelist_available(show_visible=True)" />
+        <div t-attf-class="dropdown#{'' if ssi_product_website_pricelists and len(ssi_product_website_pricelists)&gt;1 else ' d-none'} #{_classes}">
             <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
             <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
                 <t t-esc="curr_pl and curr_pl.name or ' - '" />
             </a>
             <div class="dropdown-menu" role="menu">
-                <t t-foreach="website_sale_pricelists" t-as="pl">
+                <t t-foreach="ssi_product_website_pricelists" t-as="pl">
                     <a role="menuitem" t-att-href="'/product_catalog/change_pricelist/%s' % pl.id" class="dropdown-item">
                         <span class="switcher_pricelist" t-att-data-pl_id="pl.id" t-esc="pl.name" />
                     </a>
@@ -118,8 +118,8 @@
         <t t-call="website.layout">
             <t t-set="additional_title">Product Catalog</t>
             <div id="wrap" class="js_sale">
-                <div class="oe_structure oe_empty" id="oe_structure_website_sale_products_1"/>
-                <div class="container oe_website_sale">
+                <div class="oe_structure oe_empty" id="oe_structure_ssi_product_website_products_1"/>
+                <div class="container oe_ssi_product_website">
                     <div class="products_pager form-inline flex-md-nowrap justify-content-between justify-content-md-center">
                         <t t-call="ssi_product_website.search">
                             <t t-set="_classes" t-valuef="w-100 w-md-auto mt-2"/>
@@ -183,7 +183,7 @@
                         <t t-call="website.pager"/>
                     </div>
                 </div>
-                <div class="oe_structure oe_empty" id="oe_structure_website_sale_products_2"/>
+                <div class="oe_structure oe_empty" id="oe_structure_ssi_product_website_products_2"/>
             </div>
         </t>
     </template>
@@ -194,18 +194,18 @@
             <t t-set="list_price_asc_label">Catalog price: Low to High</t>
             <t t-set="name_asc_label">Name: A to Z</t>
             <t t-set="name_desc_label">Name: Z to A</t>
-            <t t-set="website_sale_sortable" t-value="[
+            <t t-set="ssi_product_website_sortable" t-value="[
                 (list_price_desc_label, 'list_price desc'),
                 (list_price_asc_label, 'list_price asc'),
                 (name_asc_label, 'name asc'),
                 (name_desc_label, 'name desc')
             ]"/>
-            <t t-set="website_sale_sortable_current" t-value="[sort for sort in website_sale_sortable if sort[1]==request.params.get('order', '')]"/>
+            <t t-set="ssi_product_website_sortable_current" t-value="[sort for sort in ssi_product_website_sortable if sort[1]==request.params.get('order', '')]"/>
             <div class="dropdown mt-2 ml-md-2 dropdown_sorty_by">
                 <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
                     <span class="d-none d-lg-inline">
-                        <t t-if='len(website_sale_sortable_current)'>
-                            Sorting by : <t t-raw='website_sale_sortable_current[0][0]'/>
+                        <t t-if='len(ssi_product_website_sortable_current)'>
+                            Sorting by : <t t-raw='ssi_product_website_sortable_current[0][0]'/>
                         </t>
                         <t t-else='1'>
                             Sort by
@@ -214,7 +214,7 @@
                     <i class="fa fa-sort-amount-asc d-lg-none"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
-                    <t t-foreach="website_sale_sortable" t-as="sortby">
+                    <t t-foreach="ssi_product_website_sortable" t-as="sortby">
                         <a role="menuitem" rel="noindex,nofollow" t-att-href="keep('/product_catalog', order=sortby[1])" class="dropdown-item">
                             <span t-raw="sortby[0]"/>
                         </a>
@@ -255,7 +255,7 @@
         <t t-call="website.layout">
             <t t-set="additional_title" t-value="product.name" />
             <div itemscope="itemscope" itemtype="http://schema.org/Product" id="wrap" class="js_sale">
-                <section t-attf-class="container py-2 oe_website_sale #{'discount' if combination_info['has_discounted_price'] else ''}" id="product_detail" t-att-data-view-track="view_track and '1' or '0'">
+                <section t-attf-class="container py-2 oe_ssi_product_website #{'discount' if combination_info['has_discounted_price'] else ''}" id="product_detail" t-att-data-view-track="view_track and '1' or '0'">
                     <div class="row">
                         <div class="col-md-4">
                             <ol class="breadcrumb">
@@ -346,7 +346,7 @@
             method="post" name="coupon_code">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
             <div class="input-group w-100">
-                <input name="promo" class="form-control" type="text" placeholder="code..." t-att-value="website_sale_order.pricelist_id.code or None"/>
+                <input name="promo" class="form-control" type="text" placeholder="code..." t-att-value="ssi_product_website_order.pricelist_id.code or None"/>
                 <div class="input-group-append">
                     <a href="#" role="button" class="btn btn-secondary a-submit">Apply</a>
                 </div>
@@ -400,7 +400,7 @@
     <template id="terms" name="Terms &amp; Conditions">
         <t t-call="website.layout">
           <div id="wrap">
-              <div class="oe_structure" id="oe_structure_website_sale_terms_1">
+              <div class="oe_structure" id="oe_structure_ssi_product_website_terms_1">
                 <section class="s_title" data-vcss="001">
                   <div class="container">
                     <div class="row">
@@ -433,7 +433,7 @@
                   </div>
                 </section>
               </div>
-              <div class="oe_structure" id="oe_structure_website_sale_terms_2"/>
+              <div class="oe_structure" id="oe_structure_ssi_product_website_terms_2"/>
           </div>
         </t>
     </template>

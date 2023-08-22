@@ -14,7 +14,7 @@ $o-wsale-products-layout-grid-gutter-width: min($grid-gutter-width / 2, $o-wsale
     }
 }
 
-.oe_website_sale {
+.oe_ssi_product_website {
     ul ul {
         margin-left: 1.5rem;
     }
@@ -520,7 +520,7 @@ a.no-decoration {
     max-width: 300px;
 }
 
-.o_website_sale_animate {
+.o_ssi_product_website_animate {
     opacity: 0.7;
     position: absolute !important;
     height: 150px;
