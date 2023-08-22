@@ -21,11 +21,7 @@ class Website(models.Model):
         string='Default Currency', readonly=False)
 
     def _get_default_website_team(self):
-        try:
-            team = self.env.ref('sales_team.salesteam_website_sales')
-            return team if team.active else None
-        except ValueError:
-            return None
+        return None
 
     pricelist_ids = fields.One2many('product.pricelist', compute="_compute_pricelist_ids",
                                     string='Price list available for this Ecommerce/Website')
