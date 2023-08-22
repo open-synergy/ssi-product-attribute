@@ -136,7 +136,7 @@ class Website(models.Model):
                 website = len(self) == 1 and self or self.search([], limit=1)
         isocountry = req and req.session.geoip and req.session.geoip.get('country_code') or False
         partner = self.env.user.partner_id
-        last_order_pl = partner.last_website_so_id.pricelist_id
+        last_order_pl = self.env['product.pricelist']
         partner_pl = partner.property_product_pricelist
         pricelists = website._get_pl_partner_order(isocountry, show_visible,
                                                    website.user_id.sudo().partner_id.property_product_pricelist.id,
@@ -177,7 +177,7 @@ class Website(models.Model):
                 request.session.pop('website_sale_current_pl')
         if not pl:
             # If the user has a saved cart, it take the pricelist of this last unconfirmed cart
-            pl = partner.last_website_so_id.pricelist_id
+            pl = self.env['product.pricelist']
             if not pl:
                 # The pricelist of the user set on its partner form.
                 # If the user is not signed in, it's the public user pricelist
@@ -247,13 +247,6 @@ class Website(models.Model):
         partner = self.env.user.partner_id
         sale_order_id = request.session.get('sale_order_id')
         check_fpos = False
-        if not sale_order_id and not self.env.user._is_public():
-            last_order = partner.last_website_so_id
-            if last_order:
-                available_pricelists = self.get_pricelist_available()
-                # Do not reload the cart of this user last visit if the cart uses a pricelist no longer available.
-                sale_order_id = last_order.pricelist_id in available_pricelists and last_order.id
-                check_fpos = True
 
         # Test validity of the sale_order_id
         sale_order = self.env['sale.order'].with_company(request.website.company_id.id).sudo().browse(sale_order_id).exists() if sale_order_id else None
