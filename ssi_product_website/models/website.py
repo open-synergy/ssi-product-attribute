@@ -37,10 +37,7 @@ class Website(models.Model):
                                         help='Technical: Used to recompute pricelist_ids')
 
     def _default_recovery_mail_template(self):
-        try:
-            return self.env.ref('website_sale.mail_template_sale_cart_recovery').id
-        except ValueError:
-            return False
+        return False
 
     cart_recovery_mail_template_id = fields.Many2one('mail.template', string='Cart Recovery Email', default=_default_recovery_mail_template, domain="[('model', '=', 'sale.order')]")
     cart_abandoned_delay = fields.Float("Abandoned Delay", default=1.0)
@@ -387,16 +384,6 @@ class Website(models.Model):
 
     def _bootstrap_snippet_filters(self):
         super(Website, self)._bootstrap_snippet_filters()
-        # The same behavior is done in the post_init hook
-        action = self.env.ref('website_sale.dynamic_snippet_products_action', raise_if_not_found=False)
-        if action:
-            self.env['website.snippet.filter'].create({
-                'action_server_id': action.id,
-                'field_names': 'display_name,description_sale,image_512,list_price',
-                'limit': 16,
-                'name': _('Products'),
-                'website_id': self.id,
-            })
 
 
 class WebsiteSaleExtraField(models.Model):

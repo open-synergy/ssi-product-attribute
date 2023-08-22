@@ -176,7 +176,7 @@
     <!-- /product_catalog product listing -->
     <template id="products" name="Products">
         <t t-call="website.layout">
-            <t t-set="additional_title">Shop</t>
+            <t t-set="additional_title">Product Catalog</t>
             <div id="wrap" class="js_sale">
                 <div class="oe_structure oe_empty" id="oe_structure_website_sale_products_1"/>
                 <div class="container oe_website_sale">
@@ -298,28 +298,6 @@
                 </t>
             </ul>
         </li>
-    </template>
-
-    <template id="products_categories" inherit_id="ssi_product_website.products" active="False" customize_show="True" name="Product Categories">
-        <xpath expr="//div[@id='products_grid_before']" position="before">
-            <t t-set="enable_left_column" t-value="True"/>
-        </xpath>
-        <xpath expr="//div[@id='products_grid_before']" position="inside">
-            <button type="button" class="btn btn-link d-lg-none"
-                data-target="#wsale_products_categories_collapse" data-toggle="collapse">
-                Show categories
-            </button>
-            <div class="collapse d-lg-block" id="wsale_products_categories_collapse">
-                <ul class="nav nav-pills flex-column mb-2">
-                    <li class="nav-item">
-                        <a t-att-href="keep('/product_catalog', category=0)" t-attf-class="nav-link #{'' if category else 'active'} o_not_editable">All Products</a>
-                    </li>
-                    <t t-foreach="categories" t-as="c">
-                        <t t-call="ssi_product_website.categories_recursive" />
-                    </t>
-                </ul>
-            </div>
-        </xpath>
     </template>
 
     <template id="option_collapse_categories_recursive" name="Collapse Category Recursive">

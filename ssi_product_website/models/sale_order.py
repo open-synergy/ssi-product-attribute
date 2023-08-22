@@ -359,7 +359,6 @@ class SaleOrder(models.Model):
         """
         websites = self.mapped('website_id')
         template = websites.cart_recovery_mail_template_id if len(websites) == 1 else False
-        template = template or self.env.ref('website_sale.mail_template_sale_cart_recovery', raise_if_not_found=False)
         return template or self.env['mail.template']
 
     def _cart_recovery_email_send(self):
