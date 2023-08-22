@@ -195,8 +195,8 @@ class Website(models.Model):
             _logger.error('Fail to find pricelist for partner "%s" (id %s)', partner.name, partner.id)
         return pl
 
-    def sale_product_domain(self):
-        return [("sale_ok", "=", True)] + self.get_current_website().website_domain()
+    def product_catalog_product_domain(self):
+        return [("product_catalog", "=", True)] + self.get_current_website().website_domain()
 
     @api.model
     def sale_get_payment_term(self, partner):

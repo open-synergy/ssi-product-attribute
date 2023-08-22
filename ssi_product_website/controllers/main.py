@@ -110,7 +110,7 @@ class ProductWebsite(http.Controller):
         return 'is_published desc, %s, id desc' % order
 
     def _get_search_domain(self, search, category, attrib_values, search_in_description=True):
-        domains = [request.website.sale_product_domain()]
+        domains = [request.website.product_catalog_product_domain()]
         if search:
             for srch in search.split(" "):
                 subdomains = [

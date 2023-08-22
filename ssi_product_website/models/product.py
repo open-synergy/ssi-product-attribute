@@ -191,6 +191,10 @@ class ProductTemplate(models.Model):
     _mail_post_access = 'read'
     _check_company_auto = True
 
+    product_catalog = fields.Boolean(
+        string='Show in Product Catalog',
+        default=True,
+        required=False)
     website_description = fields.Html('Description for the website', sanitize_attributes=False, translate=html_translate, sanitize_form=False)
     alternative_product_ids = fields.Many2many(
         'product.template', 'product_alternative_rel', 'src_id', 'dest_id', check_company=True,
