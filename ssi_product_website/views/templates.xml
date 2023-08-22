@@ -88,7 +88,7 @@
         </xpath>
     </template>
 
-    <template id="products_description" inherit_id="ssi_product_website.products_item" active="False" customize_show="True" name="Product Description">
+    <template id="products_description" inherit_id="ssi_product_website.products_item" active="True" customize_show="True" name="Product Description">
         <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
             <div class="oe_subdescription" contenteditable="false">
                 <div itemprop="description" t-field="product.description"/>
