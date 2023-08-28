@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
     <template id="_assets_primary_variables" inherit_id="website._assets_primary_variables">
         <xpath expr="//link[last()]" position="after">
@@ -47,15 +50,15 @@
     <template id="products_item" name="Products item">
         <t t-set="product_href" t-value="keep(product.catalog_url, page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" />
 
-        <t t-set="combination_info" t-value="product._get_combination_info_catalog(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+        <t t-set="combination_info" t-value="product._get_combination_info_catalog(only_template=True, add_qty=add_qty or 1)"/>
 
-        <form action="/product_catalog/cart/update" method="post" class="card oe_product_cart"
+        <form class="card oe_product_catalog"
             t-att-data-publish="product.website_published and 'on' or 'off'"
             itemscope="itemscope" itemtype="http://schema.org/Product">
             <div class="card-body p-1 oe_product_image">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                 <a t-att-href="product_href" class="d-block h-100" itemprop="url">
-                    <t t-set="image_holder" t-value="product._get_image_holder()"/>
+                    <t t-set="image_holder" t-value="product._get_image_holder_catalog()"/>
                     <span t-field="image_holder.image_1920"
                         t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256', 'itemprop': 'image'}"
                         class="d-flex h-100 justify-content-center align-items-center"/>
@@ -76,10 +79,10 @@
     <template id="product_price_hideable" inherit_id="ssi_product_website.products_item" active="True" customize_show="True" name="Product Price">
         <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
             <div class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
-                <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
-                <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': combination_info['currency_id']}" />
+                <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': combination_info['currency_id']}"/>
                 <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
-                <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                <span itemprop="priceCurrency" style="display:none;" t-esc="combination_info['currency_id']" />
             </div>
         </xpath>
     </template>
@@ -90,23 +93,6 @@
                 <div itemprop="description" t-field="product.description"/>
             </div>
         </xpath>
-    </template>
-
-    <template id="pricelist_list" name="Pricelists Dropdown">
-        <t t-set="ssi_product_website_pricelists" t-value="website.get_pricelist_available(show_visible=True)" />
-        <div t-attf-class="dropdown#{'' if ssi_product_website_pricelists and len(ssi_product_website_pricelists)&gt;1 else ' d-none'} #{_classes}">
-            <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
-            <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
-                <t t-esc="curr_pl and curr_pl.name or ' - '" />
-            </a>
-            <div class="dropdown-menu" role="menu">
-                <t t-foreach="ssi_product_website_pricelists" t-as="pl">
-                    <a role="menuitem" t-att-href="'/product_catalog/change_pricelist/%s' % pl.id" class="dropdown-item">
-                        <span class="switcher_pricelist" t-att-data-pl_id="pl.id" t-esc="pl.name" />
-                    </a>
-                </t>
-            </div>
-        </div>
     </template>
 
     <!-- /product_catalog product listing -->
@@ -129,7 +115,7 @@
                         <div id="products_grid" t-attf-class="col #{'o_wsale_layout_list' if layout_mode == 'list' else ''}">
                             <t t-if="category">
                                 <t t-set='editor_msg'>Drag building blocks here to customize the header for "<t t-esc='category.name'/>" category.</t>
-                                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg" t-field="category.website_description"/>
+                                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg" t-field="category.description"/>
                             </t>
                             <div t-if="bins" class="o_wsale_products_grid_table_wrapper">
                                 <table class="table table-borderless m-0" t-att-data-ppg="ppg" t-att-data-ppr="ppr">
@@ -244,7 +230,7 @@
     <template id="product" name="Product" track="1">
 
         <t t-set="combination" t-value="product._get_first_possible_combination()"/>
-        <t t-set="combination_info" t-value="product._get_combination_info_catalog(combination, add_qty=add_qty or 1, pricelist=pricelist)"/>
+        <t t-set="combination_info" t-value="product._get_combination_info_catalog(combination, add_qty=add_qty or 1)"/>
         <t t-set="product_variant" t-value="product.env['product.product'].browse(combination_info['product_id'])"/>
 
         <t t-call="website.layout">
@@ -290,7 +276,7 @@
                         </div>
                     </div>
                 </section>
-                <div itemprop="description" t-field="product.website_description" class="oe_structure oe_empty mt16" id="product_full_description"/>
+                <div itemprop="description" t-field="product.description" class="oe_structure oe_empty mt16" id="product_full_description"/>
             </div>
         </t>
     </template>
@@ -300,13 +286,13 @@
             <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price mt16">
                 <h4 class="oe_price_h4 css_editable_mode_hidden">
                     <span t-attf-class="text-danger oe_default_price {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="text-decoration: line-through; white-space: nowrap;"
-                        t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"
+                        t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': product.currency_id}"
                     />
-                    <b class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    <b class="oe_price" style="white-space: nowrap;" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': combination_info['currency_id']}"/>
                     <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
-                    <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                    <span itemprop="priceCurrency" style="display:none;" t-esc="product.currency_id.name"/>
                 </h4>
-                <h4 class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(website.currency_id.decimal_places)">
+                <h4 class="css_non_editable_mode_hidden decimal_precision" t-att-data-precision="str(product.currency_id.decimal_places)">
                 <span t-field="product.list_price"
                     t-options='{
                         "widget": "monetary",
@@ -315,22 +301,6 @@
                 </h4>
             </div>
         </xpath>
-    </template>
-
-    <template id='coupon_form' name='Coupon form'>
-        <form t-att-action="'/product_catalog/pricelist%s' % (redirect and '?r=' + redirect or '')"
-            method="post" name="coupon_code">
-            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-            <div class="input-group w-100">
-                <input name="promo" class="form-control" type="text" placeholder="code..." t-att-value="ssi_product_website_order.pricelist_id.code or None"/>
-                <div class="input-group-append">
-                    <a href="#" role="button" class="btn btn-secondary a-submit">Apply</a>
-                </div>
-            </div>
-        </form>
-        <t t-if="request.params.get('code_not_available')" name="code_not_available">
-            <div class="alert alert-danger text-left" role="alert">This promo code is not available.</div>
-        </t>
     </template>
 
     <template id="address_kanban" name="Kanban address">
