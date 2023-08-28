@@ -215,7 +215,7 @@ class ProductTemplate(models.Model):
              "Customize and enable 'eCommerce categories' to view all eCommerce categories.")
     is_published = fields.Boolean(default=True)
 
-    product_template_image_ids = fields.One2many('product.image', 'product_tmpl_id', string="Extra Product Media", copy=True)
+    # product_template_image_ids = fields.One2many('product.image', 'product_tmpl_id', string="Extra Product Media", copy=True)
 
     def _has_no_variant_attributes(self):
         """Return whether this `product.template` has at least one no_variant
@@ -508,18 +508,18 @@ class ProductTemplate(models.Model):
         domain = super(ProductTemplate, self)._rating_domain()
         return expression.AND([domain, [('is_internal', '=', False)]])
 
-    def _get_images(self):
-        """Return a list of records implementing `image.mixin` to
-        display on the carousel on the website for this template.
-
-        This returns a list and not a recordset because the records might be
-        from different models (template and image).
-
-        It contains in this order: the main image of the template and the
-        Template Extra Images.
-        """
-        self.ensure_one()
-        return [self] + list(self.product_template_image_ids)
+    # def _get_images(self):
+    #     """Return a list of records implementing `image.mixin` to
+    #     display on the carousel on the website for this template.
+    #
+    #     This returns a list and not a recordset because the records might be
+    #     from different models (template and image).
+    #
+    #     It contains in this order: the main image of the template and the
+    #     Template Extra Images.
+    #     """
+    #     self.ensure_one()
+    #     return [self] + list(self.product_template_image_ids)
 
 
 class Product(models.Model):
@@ -527,7 +527,7 @@ class Product(models.Model):
 
     website_id = fields.Many2one(related='product_tmpl_id.website_id', readonly=False)
 
-    product_variant_image_ids = fields.One2many('product.image', 'product_variant_id', string="Extra Variant Images")
+    # product_variant_image_ids = fields.One2many('product.image', 'product_variant_id', string="Extra Variant Images")
 
     website_url = fields.Char('Website URL', compute='_compute_product_website_url', help='The full URL to access the document through the website.')
 
@@ -548,26 +548,26 @@ class Product(models.Model):
         res['url'] = self.website_url
         return res
 
-    def _get_images(self):
-        """Return a list of records implementing `image.mixin` to
-        display on the carousel on the website for this variant.
-
-        This returns a list and not a recordset because the records might be
-        from different models (template, variant and image).
-
-        It contains in this order: the main image of the variant (if set), the
-        Variant Extra Images, and the Template Extra Images.
-        """
-        self.ensure_one()
-        variant_images = list(self.product_variant_image_ids)
-        if self.image_variant_1920:
-            # if the main variant image is set, display it first
-            variant_images = [self] + variant_images
-        else:
-            # If the main variant image is empty, it will fallback to template
-            # image, in this case insert it after the other variant images, so
-            # that all variant images are first and all template images last.
-            variant_images = variant_images + [self]
-        # [1:] to remove the main image from the template, we only display
-        # the template extra images here
-        return variant_images + self.product_tmpl_id._get_images()[1:]
+    # def _get_images(self):
+    #     """Return a list of records implementing `image.mixin` to
+    #     display on the carousel on the website for this variant.
+    #
+    #     This returns a list and not a recordset because the records might be
+    #     from different models (template, variant and image).
+    #
+    #     It contains in this order: the main image of the variant (if set), the
+    #     Variant Extra Images, and the Template Extra Images.
+    #     """
+    #     self.ensure_one()
+    #     variant_images = list(self.product_variant_image_ids)
+    #     if self.image_variant_1920:
+    #         # if the main variant image is set, display it first
+    #         variant_images = [self] + variant_images
+    #     else:
+    #         # If the main variant image is empty, it will fallback to template
+    #         # image, in this case insert it after the other variant images, so
+    #         # that all variant images are first and all template images last.
+    #         variant_images = variant_images + [self]
+    #     # [1:] to remove the main image from the template, we only display
+    #     # the template extra images here
+    #     return variant_images + self.product_tmpl_id._get_images()[1:]

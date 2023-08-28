@@ -280,35 +280,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-8">
-                            <t t-call="ssi_product_website.shop_product_carousel"/>
+                            <div t-field="product.image_1920" class="d-flex align-items-center justify-content-center h-100" t-options='{"widget": "image", "preview_image": "image_1024", "class": "product_detail_img mh-100", "alt-field": "name", "zoom": product.image_1920 and "image_1920"}'/>
                         </div>
                         <div class="col-md-6 col-xl-4" id="product_details">
                             <t t-set="base_url" t-value="product.get_base_url()"/>
                             <span itemprop="url" style="display:none;" t-esc="base_url + product.website_url"/>
                             <span itemprop="image" style="display:none;" t-esc="base_url + website.image_url(product, 'image_1920')" />
-                            <form>
-                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                <div class="js_product js_main_product">
-                                    <p t-if="True" class="css_not_available_msg alert alert-warning">This combination does not exist.</p>
-                                    <div id="product_option_block"/>
-                                </div>
-                            </form>
+                            <p t-if="False" class="css_not_available_msg alert alert-warning"/>
                             <hr t-if="product.description" />
                             <div>
                                 <p t-field="product.description" class="text-muted mt-3" placeholder="A short description that will also appear on documents." />
-                                <div id="product_attributes_simple">
-                                    <hr t-if="sum([(1 if len(l.value_ids)==1 else 0) for l in product.attribute_line_ids])"/>
-                                    <p class="text-muted">
-                                        <t t-set="single_value_attributes" t-value="product.valid_product_template_attribute_line_ids._prepare_single_value_for_display()"/>
-                                        <t t-foreach="single_value_attributes" t-as="attribute">
-                                            <span t-field="attribute.name"/>:
-                                            <t t-foreach="single_value_attributes[attribute]" t-as="ptal">
-                                                <span t-field="ptal.product_template_value_ids._only_active().name"/><t t-if="not ptal_last">, </t>
-                                            </t>
-                                            <br/>
-                                        </t>
-                                    </p>
-                                </div>
                             </div>
                             <hr />
                         </div>
@@ -436,40 +417,6 @@
               <div class="oe_structure" id="oe_structure_ssi_product_website_terms_2"/>
           </div>
         </t>
-    </template>
-
-    <template id="ssi_product_website.shop_product_carousel" name="Shop Product Carousel">
-        <t t-set="product_images" t-value="product_variant._get_images() if product_variant else product._get_images()"/>
-        <div id="o-carousel-product" class="carousel slide" data-ride="carousel" data-interval="0">
-            <div class="carousel-outer position-relative">
-                <div class="carousel-inner h-100">
-                    <t t-foreach="product_images" t-as="product_image">
-                        <div t-attf-class="carousel-item h-100#{' active' if product_image_first else ''}">
-                            <div t-if="product_image._name == 'product.image' and product_image.embed_code" class="d-flex align-items-center justify-content-center h-100 embed-responsive embed-responsive-16by9">
-                                <t t-raw="product_image.embed_code"/>
-                            </div>
-                            <div  t-else="" t-field="product_image.image_1920" class="d-flex align-items-center justify-content-center h-100" t-options='{"widget": "image", "preview_image": "image_1024", "class": "product_detail_img mh-100", "alt-field": "name", "zoom": product_image.can_image_1024_be_zoomed and "image_1920"}'/>
-                        </div>
-                    </t>
-                </div>
-                <t t-if="len(product_images) > 1">
-                    <a class="carousel-control-prev" href="#o-carousel-product" role="button" data-slide="prev">
-                        <span class="fa fa-chevron-left p-2" role="img" aria-label="Previous" title="Previous"/>
-                    </a>
-                    <a class="carousel-control-next" href="#o-carousel-product" role="button" data-slide="next">
-                        <span class="fa fa-chevron-right p-2" role="img" aria-label="Next" title="Next"/>
-                    </a>
-                </t>
-            </div>
-            <div t-ignore="True" class="d-none d-md-block text-center">
-                <ol t-if="len(product_images) > 1" class="carousel-indicators d-inline-block position-static mx-auto my-0 p-1 text-left">
-                    <t t-foreach="product_images" t-as="product_image"><li t-attf-class="d-inline-block m-1 align-top {{'active' if product_image_first else ''}}" data-target="#o-carousel-product" t-att-data-slide-to="str(product_image_index)">
-                        <div t-field="product_image.image_128" t-options='{"widget": "image", "qweb_img_responsive": False, "class": "o_image_64_contain", "alt-field": "name"}'/>
-                        <i t-if="product_image._name == 'product.image' and product_image.embed_code" class="fa fa-2x fa-play-circle-o o_product_video_thumb"/>
-                    </li></t>
-                </ol>
-            </div>
-        </div>
     </template>
 
 </odoo>
