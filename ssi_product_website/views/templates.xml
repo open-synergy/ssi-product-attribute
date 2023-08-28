@@ -28,9 +28,9 @@
             <attribute name="t-attf-class" remove="#{_classes}" separator=" "/>
         </xpath>
         <xpath expr="//div[@role='search']" position="replace">
-            <form t-attf-class="o_wsale_products_searchbar_form o_wait_lazy_js #{_classes}" t-att-action="action if action else '/product_catalog'" method="get" t-att-data-snippet="_snippet">
+            <form t-attf-class="o_pcatalog_products_searchbar_form o_wait_lazy_js #{_classes}" t-att-action="action if action else '/product_catalog'" method="get" t-att-data-snippet="_snippet">
                 <t>$0</t>
-                <input name="order" type="hidden" class="o_wsale_search_order_by" value=""/>
+                <input name="order" type="hidden" class="o_pcatalog_search_order_by" value=""/>
                 <t t-raw="0"/>
             </form>
         </xpath>
@@ -38,7 +38,6 @@
 
     <template id="search" name="Search Box">
         <t t-call="ssi_product_website.ssi_product_website_products_search_box">
-            <t t-set="action" t-value="keep('/product_catalog'+ ('/category/'+slug(category)) if category else None, search=0)"/>
             <t t-if="attrib_values">
                 <t t-foreach="attrib_values" t-as="a">
                     <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
@@ -64,20 +63,20 @@
                         class="d-flex h-100 justify-content-center align-items-center"/>
                 </a>
             </div>
-            <div class="card-body p-0 text-center o_wsale_product_information">
-                <div class="p-2 o_wsale_product_information_text">
-                    <h6 class="o_wsale_products_item_title">
+            <div class="card-body p-0 text-center o_pcatalog_product_information">
+                <div class="p-2 o_pcatalog_product_information_text">
+                    <h6 class="o_pcatalog_products_item_title">
                         <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
                         <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </h6>
                 </div>
-                <div class="o_wsale_product_btn"/>
+                <div class="o_pcatalog_product_btn"/>
             </div>
         </form>
     </template>
 
     <template id="product_price_hideable" inherit_id="ssi_product_website.products_item" active="True" customize_show="True" name="Product Price">
-        <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
+        <xpath expr="//*[hasclass('o_pcatalog_products_item_title')]" position="after">
             <div class="product_price" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
                 <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': combination_info['currency_id']}" />
                 <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': combination_info['currency_id']}"/>
@@ -88,7 +87,7 @@
     </template>
 
     <template id="products_description" inherit_id="ssi_product_website.products_item" active="True" customize_show="True" name="Product Description">
-        <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="after">
+        <xpath expr="//*[hasclass('o_pcatalog_products_item_title')]" position="after">
             <div class="oe_subdescription" contenteditable="false">
                 <div itemprop="description" t-field="product.description"/>
             </div>
@@ -110,14 +109,10 @@
                             <t t-set="_classes" t-valuef="mt-2 ml-md-2"/>
                         </t>
                     </div>
-                    <div class="row o_wsale_products_main_row">
+                    <div class="row o_pcatalog_products_main_row">
                         <div t-if="enable_left_column" id="products_grid_before" class="col-lg-3"/>
-                        <div id="products_grid" t-attf-class="col #{'o_wsale_layout_list' if layout_mode == 'list' else ''}">
-                            <t t-if="category">
-                                <t t-set='editor_msg'>Drag building blocks here to customize the header for "<t t-esc='category.name'/>" category.</t>
-                                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg" t-field="category.description"/>
-                            </t>
-                            <div t-if="bins" class="o_wsale_products_grid_table_wrapper">
+                        <div id="products_grid" t-attf-class="col #{'o_pcatalog_layout_list' if layout_mode == 'list' else ''}">
+                            <div t-if="bins" class="o_pcatalog_products_grid_table_wrapper">
                                 <table class="table table-borderless m-0" t-att-data-ppg="ppg" t-att-data-ppr="ppr">
                                     <colgroup t-ignore="true">
                                         <!-- Force the number of columns (useful when only one row of (x < ppr) products) -->
@@ -132,7 +127,7 @@
                                                     <td t-att-colspan="td_product['x'] != 1 and td_product['x']"
                                                         t-att-rowspan="td_product['y'] != 1 and td_product['y']"
                                                         t-attf-class="oe_product">
-                                                        <div t-attf-class="o_wsale_product_grid_wrapper o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
+                                                        <div t-attf-class="o_pcatalog_product_grid_wrapper o_pcatalog_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
                                                             <t t-call="ssi_product_website.products_item">
                                                                 <t t-set="product_image_big" t-value="td_product['x'] + td_product['y'] &gt; 2"/>
                                                             </t>
@@ -149,11 +144,9 @@
                                 <div class="text-center text-muted">
                                     <t t-if="not search">
                                         <h3 class="mt8">No product defined</h3>
-                                        <p t-if="category">No product defined in category "<strong t-esc="category.display_name"/>".</p>
                                     </t>
                                     <t t-else="">
                                         <h3 class="mt8">No results</h3>
-                                        <p>No results for "<strong t-esc='search'/>"<t t-if="category"> in category "<strong t-esc="category.display_name"/>"</t>.</p>
                                     </t>
                                     <p t-ignore="true" groups="sales_team.group_sale_manager">Click <i>'New'</i> in the top-right corner to create your first product.</p>
                                 </div>
@@ -205,28 +198,6 @@
         </xpath>
     </template>
 
-    <template id="option_collapse_categories_recursive" name="Collapse Category Recursive">
-        <li class="nav-item">
-            <t t-set="children" t-value="not search and c.child_id or c.child_id.filtered(lambda c: c.id in search_categories_ids)"/>
-            <i t-if="children" t-attf-class="text-primary fa #{'fa-chevron-down' if c.id in category.parents_and_self.ids else 'fa-chevron-right'}"
-               t-attf-title="#{'Unfold' if c.id in category.parents_and_self.ids else 'Fold'}"
-               t-attf-aria-label="#{'Unfold' if c.id in category.parents_and_self.ids else 'Fold'}" role="img"/>
-            <a t-att-href="keep('/product_catalog/category/' + slug(c), category=0)" t-attf-class="nav-link #{'active' if c.id == category.id else ''}" t-field="c.name"></a>
-            <ul t-if="children" class="nav nav-pills flex-column nav-hierarchy" t-att-style="'display:block;' if c.id in category.parents_and_self.ids else 'display:none;'">
-                <t t-foreach="children" t-as="c">
-                    <t t-call="ssi_product_website.option_collapse_categories_recursive"/>
-                </t>
-            </ul>
-        </li>
-    </template>
-
-    <!-- /product_catalog/product page -->
-    <template id="product_edit_options" inherit_id="website.user_navbar" name="Edit Product Options">
-        <xpath expr="//li[@id='edit-page-menu']" position="after">
-            <t t-if="main_object._name == 'product.template'" t-set="action" t-value="'ssi_product_website.product_template_action_website'" />
-        </xpath>
-    </template>
-
     <template id="product" name="Product" track="1">
 
         <t t-set="combination" t-value="product._get_first_possible_combination()"/>
@@ -241,10 +212,7 @@
                         <div class="col-md-4">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a t-att-href="keep(category=0)">Products</a>
-                                </li>
-                                <li t-if="category" class="breadcrumb-item">
-                                    <a t-att-href="keep('/product_catalog/category/%s' % slug(category), category=0)" t-field="category.name" />
+                                    <a t-att-href="keep()">Products</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <span t-field="product.name" />
@@ -301,87 +269,6 @@
                 </h4>
             </div>
         </xpath>
-    </template>
-
-    <template id="address_kanban" name="Kanban address">
-            <form action="/product_catalog/checkout" method="POST" class="d-none">
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                <input type="hidden" name="partner_id" t-att-value="contact.id" />
-                <t t-if='edit_billing'>
-                    <input type="hidden" name="callback" value="/product_catalog/checkout?use_billing" />
-                </t>
-                <input type='submit'/>
-            </form>
-            <div t-attf-class="card #{selected and 'border border-primary' or 'js_change_shipping'}">
-                <div class='card-body' style='min-height: 130px;'>
-                    <a t-if="not actual_partner or (ship.id in actual_partner.child_ids.ids)" href="#" class="btn btn-link float-right p-0 js_edit_address no-decoration" role="button" title="Edit this address" aria-label="Edit this address"><i class='fa fa-edit'/></a>
-                    <t t-esc="contact" t-options="dict(widget='contact', fields=['name', 'address'], no_marker=True)"/>
-                </div>
-                <div class='card-footer' t-if='not readonly'>
-                    <span class='btn-ship' t-att-style="'' if selected else 'display:none;'">
-                        <a role="button" href='#' class="btn btn-block btn-primary">
-                            <i class='fa fa-check'></i> Ship to this address
-                        </a>
-                    </span>
-                    <span class='btn-ship' t-att-style="'' if not selected else 'display:none;'">
-                        <a role="button" href='#' class="btn btn-block btn-secondary">
-                            Select this address
-                        </a>
-                    </span>
-                </div>
-            </div>
-    </template>
-
-    <template id="ssi_product_website.brand_promotion" inherit_id="website.brand_promotion">
-        <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
-            <t t-call="web.brand_promotion_message">
-                <t t-set="_message">
-                    The #1 <a target="_blank" href="http://www.odoo.com/page/e-commerce?utm_source=db&amp;utm_medium=website">Open Source eCommerce</a>
-                </t>
-                <t t-set="_utm_medium" t-valuef="website"/>
-            </t>
-        </xpath>
-    </template>
-
-    <template id="terms" name="Terms &amp; Conditions">
-        <t t-call="website.layout">
-          <div id="wrap">
-              <div class="oe_structure" id="oe_structure_ssi_product_website_terms_1">
-                <section class="s_title" data-vcss="001">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <h1 class="text-center">Terms &amp;amp; Conditions</h1>
-                        <div class="card s_well clearfix">
-                            <div class="card-body">
-                                <ul>
-                                    <li>The <b>Intellectual Property</b> disclosure will inform users that the contents, logo and other visual media you created is your property and is protected by copyright laws.</li>
-                                    <li>A <b>Termination</b> clause will inform that users’ accounts on your website and mobile app or users’ access to your website and mobile (if users can’t have an account with you) can be terminated in case of abuses or at your sole discretion.</li>
-                                    <li>A <b>Governing Law</b> will inform users which laws govern the agreement. This should the country in which your company is headquartered or the country from which you operate your web site and mobile app.</li>
-                                    <li>A <b>Links To Other Web Sites</b> clause will inform users that you are not responsible for any third party web sites that you link to. This kind of clause will generally inform users that they are responsible for reading and agreeing (or disagreeing) with the Terms and Conditions or Privacy Policies of these third parties.</li>
-                                    <li>If your website or mobile apps allows users to create content and make that content public to other users, a <b>Content</b> section will inform users that they own the rights to the content they have created.<br/>The “Content” clause usually mentions that users must give you (the website or mobile app developer) a license so that you can share this content on your website/mobile app and to make it available to other users.<br/>Because the content created by users is public to other users, a DMCA notice clause (or Copyright Infringement ) section is helpful to inform users and copyright authors that, if any content is found to be a copyright infringement, you will respond to any DMCA take down notices received and you will take down the content.</li>
-                                    <li>A <b>Limit What Users Can Do</b> clause can inform users that by agreeing to use your service, they’re also agreeing to not do certain things. This can be part of a very long and thorough list in your Terms and Conditions agreements so as to encompass the most amount of negative uses.</li>
-                               </ul>
-                               <small class="text-muted float-right">Source: https://termsfeed.com/blog/sample-terms-and-conditions-template</small>
-                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section class="s_text_block" data-snippet="s_text_block">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-12 mb16 mt16">
-                        <p style='white-space:pre' t-esc="website.company_id.invoice_terms"/>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <div class="oe_structure" id="oe_structure_ssi_product_website_terms_2"/>
-          </div>
-        </t>
     </template>
 
 </odoo>
