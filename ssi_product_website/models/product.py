@@ -13,19 +13,6 @@ from psycopg2.extras import execute_values
 _logger = logging.getLogger(__name__)
 
 
-class ProductRibbon(models.Model):
-    _name = "product.ribbon"
-    _description = 'Product ribbon'
-
-    def name_get(self):
-        return [(ribbon.id, '%s (#%d)' % (tools.html2plaintext(ribbon.html), ribbon.id)) for ribbon in self]
-
-    html = fields.Char(string='Ribbon html', required=True, translate=True)
-    bg_color = fields.Char(string='Ribbon background color', required=False)
-    text_color = fields.Char(string='Ribbon text color', required=False)
-    html_class = fields.Char(string='Ribbon class', required=True, default='')
-
-
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 
@@ -205,7 +192,6 @@ class ProductTemplate(models.Model):
         help='Accessories show up when the customer reviews the cart before payment (cross-sell strategy).')
     website_size_x = fields.Integer('Size X', default=1)
     website_size_y = fields.Integer('Size Y', default=1)
-    website_ribbon_id = fields.Many2one('product.ribbon', string='Ribbon')
     website_sequence = fields.Integer('Website Sequence', help="Determine the display order in the Website E-commerce",
                                       default=lambda self: self._default_website_sequence(), copy=False)
     public_categ_ids = fields.Many2many(
@@ -508,19 +494,6 @@ class ProductTemplate(models.Model):
         domain = super(ProductTemplate, self)._rating_domain()
         return expression.AND([domain, [('is_internal', '=', False)]])
 
-    # def _get_images(self):
-    #     """Return a list of records implementing `image.mixin` to
-    #     display on the carousel on the website for this template.
-    #
-    #     This returns a list and not a recordset because the records might be
-    #     from different models (template and image).
-    #
-    #     It contains in this order: the main image of the template and the
-    #     Template Extra Images.
-    #     """
-    #     self.ensure_one()
-    #     return [self] + list(self.product_template_image_ids)
-
 
 class Product(models.Model):
     _inherit = "product.product"
@@ -541,33 +514,3 @@ class Product(models.Model):
     def website_publish_button(self):
         self.ensure_one()
         return self.product_tmpl_id.website_publish_button()
-
-    def open_website_url(self):
-        self.ensure_one()
-        res = self.product_tmpl_id.open_website_url()
-        res['url'] = self.website_url
-        return res
-
-    # def _get_images(self):
-    #     """Return a list of records implementing `image.mixin` to
-    #     display on the carousel on the website for this variant.
-    #
-    #     This returns a list and not a recordset because the records might be
-    #     from different models (template, variant and image).
-    #
-    #     It contains in this order: the main image of the variant (if set), the
-    #     Variant Extra Images, and the Template Extra Images.
-    #     """
-    #     self.ensure_one()
-    #     variant_images = list(self.product_variant_image_ids)
-    #     if self.image_variant_1920:
-    #         # if the main variant image is set, display it first
-    #         variant_images = [self] + variant_images
-    #     else:
-    #         # If the main variant image is empty, it will fallback to template
-    #         # image, in this case insert it after the other variant images, so
-    #         # that all variant images are first and all template images last.
-    #         variant_images = variant_images + [self]
-    #     # [1:] to remove the main image from the template, we only display
-    #     # the template extra images here
-    #     return variant_images + self.product_tmpl_id._get_images()[1:]

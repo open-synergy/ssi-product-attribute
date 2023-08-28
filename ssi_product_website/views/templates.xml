@@ -70,10 +70,6 @@
                 </div>
                 <div class="o_wsale_product_btn"/>
             </div>
-            <t t-set="bg_color" t-value="td_product['ribbon']['bg_color'] or ''"/>
-            <t t-set="text_color" t-value="td_product['ribbon']['text_color']"/>
-            <t t-set="bg_class" t-value="td_product['ribbon']['html_class']"/>
-            <span t-attf-class="o_ribbon #{bg_class}" t-attf-style="#{text_color and ('color: %s; ' % text_color)}#{bg_color and 'background-color:' + bg_color}" t-raw="td_product['ribbon']['html'] or ''"/>
         </form>
     </template>
 
@@ -149,8 +145,7 @@
                                                     <!-- We use t-attf-class here to allow easier customization -->
                                                     <td t-att-colspan="td_product['x'] != 1 and td_product['x']"
                                                         t-att-rowspan="td_product['y'] != 1 and td_product['y']"
-                                                        t-attf-class="oe_product"
-                                                        t-att-data-ribbon-id="td_product['ribbon'].id">
+                                                        t-attf-class="oe_product">
                                                         <div t-attf-class="o_wsale_product_grid_wrapper o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
                                                             <t t-call="ssi_product_website.products_item">
                                                                 <t t-set="product_image_big" t-value="td_product['x'] + td_product['y'] &gt; 2"/>

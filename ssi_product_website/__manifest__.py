@@ -18,7 +18,7 @@
         "security/ir.model.access.csv",
         "data/data.xml",
         "views/templates.xml",
-        "views/product_views.xml",
+        "views/product_template_views.xml",
     ],
     "demo": [],
 }
