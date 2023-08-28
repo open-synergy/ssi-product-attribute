@@ -117,6 +117,7 @@ class ProductWebsite(http.Controller):
 
     @http.route([
         '''/product_catalog''',
+        '''/product_catalog/page/<int:page>''',
     ], type='http', auth="public", website=True, sitemap=sitemap_product_catalog)
     def product_catalog(self, page=0, search='', ppg=False, **post):
         add_qty = int(post.get('add_qty', 1))
