@@ -180,7 +180,7 @@ class ProductWebsite(http.Controller):
 
     @http.route(['/product_catalog/<model("product.template"):product>'], type='http', auth="public", website=True, sitemap=True)
     def product(self, product, search='', **kwargs):
-        if not product.can_access_from_current_website():
+        if not product.product_catalog:
             raise NotFound()
 
         return request.render("ssi_product_website.product", self._prepare_product_values(product, search, **kwargs))

@@ -12,7 +12,7 @@ from psycopg2.extras import execute_values
 
 
 class ProductTemplate(models.Model):
-    _inherit = ["product.template", "website.seo.metadata", 'website.published.multi.mixin']
+    _inherit = ["product.template", "website.seo.metadata"]
     _name = 'product.template'
     _mail_post_access = 'read'
     _check_company_auto = True

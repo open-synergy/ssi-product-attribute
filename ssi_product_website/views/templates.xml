@@ -52,7 +52,6 @@
         <t t-set="combination_info" t-value="product._get_combination_info_catalog(only_template=True, add_qty=add_qty or 1)"/>
 
         <form class="card oe_product_catalog"
-            t-att-data-publish="product.website_published and 'on' or 'off'"
             itemscope="itemscope" itemtype="http://schema.org/Product">
             <div class="card-body p-1 oe_product_image">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
@@ -67,7 +66,6 @@
                 <div class="p-2 o_pcatalog_product_information_text">
                     <h6 class="o_pcatalog_products_item_title">
                         <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
-                        <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </h6>
                 </div>
                 <div class="o_pcatalog_product_btn"/>
@@ -233,7 +231,7 @@
                         </div>
                         <div class="col-md-6 col-xl-4" id="product_details">
                             <t t-set="base_url" t-value="product.get_base_url()"/>
-                            <span itemprop="url" style="display:none;" t-esc="base_url + product.website_url"/>
+                            <span itemprop="url" style="display:none;" t-esc="base_url + product.catalog_url"/>
                             <span itemprop="image" style="display:none;" t-esc="base_url + website.image_url(product, 'image_1920')" />
                             <p t-if="False" class="css_not_available_msg alert alert-warning"/>
                             <hr t-if="product.description" />
