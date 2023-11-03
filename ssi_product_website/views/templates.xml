@@ -146,7 +146,7 @@
                                     <t t-else="">
                                         <h3 class="mt8">No results</h3>
                                     </t>
-                                    <p t-ignore="true" groups="sales_team.group_sale_manager">Click <i>'New'</i> in the top-right corner to create your first product.</p>
+                                    <p t-ignore="true" groups="sales_team.group_sale_manager">Please set <i>'Show in Product Catalog'</i> field in the product menu to show each product.</p>
                                 </div>
                             </t>
                         </div>

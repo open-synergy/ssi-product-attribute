@@ -133,6 +133,10 @@ class ProductWebsite(http.Controller):
 
         ppr = 4
 
+        attrib_list = request.httprequest.args.getlist('attrib')
+        attrib_values = [[int(x) for x in v.split("-")] for v in attrib_list if v]
+        attributes_ids = {v[0] for v in attrib_values}
+
         domain = self._get_search_domain(search)
 
         keep = QueryURL('/product_catalog', search=search,
