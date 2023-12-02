@@ -1,21 +1,25 @@
 # Copyright 2022 OpenSynergy Indonesia
 # Copyright 2022 PT. Simetri Sinergi Indonesia
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Product App",
     "version": "14.0.1.3.2",
     "website": "https://simetri-sinergi.id",
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "installable": True,
     "application": True,
     "depends": [
         "product",
+        "ssi_decorator",
     ],
     "data": [
         "security/ir_module_category_data.xml",
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
+        "templates/product_category_m2_configurator_templates.xml",
+        "templates/product_product_m2_configurator_templates.xml",
+        "templates/product_template_m2_configurator_templates.xml",
         "menu.xml",
         "views/uom_category_views.xml",
         "views/uom_uom_views.xml",

@@ -1,29 +1,21 @@
 # Copyright 2023 OpenSynergy Indonesia
 # Copyright 2023 PT. Simetri Sinergi Indonesia
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import json
 import logging
-from datetime import datetime
-from werkzeug.exceptions import Forbidden, NotFound
 
-from odoo import fields, http, SUPERUSER_ID, tools, _
+from werkzeug.exceptions import NotFound
+
+from odoo import http
 from odoo.http import request
-from odoo.addons.base.models.ir_qweb_fields import nl2br
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.payment.controllers.portal import PaymentProcessing
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.exceptions import ValidationError
-from odoo.addons.portal.controllers.portal import _build_url_w_params
-from odoo.addons.website.controllers.main import Website
-from odoo.addons.website_form.controllers.main import WebsiteForm
 from odoo.osv import expression
+
+from odoo.addons.website.controllers.main import QueryURL
+
 _logger = logging.getLogger(__name__)
 
 
 class TableCompute(object):
-
     def __init__(self):
         self.table = {}
 
@@ -65,14 +57,16 @@ class TableCompute(object):
             if index >= ppg and ((pos + 1.0) // ppr) > maxy:
                 break
 
-            if x == 1 and y == 1:   # simple heuristic for CPU optimization
+            if x == 1 and y == 1:  # simple heuristic for CPU optimization
                 minpos = pos // ppr
 
             for y2 in range(y):
                 for x2 in range(x):
                     self.table[(pos // ppr) + y2][(pos % ppr) + x2] = False
             self.table[pos // ppr][pos % ppr] = {
-                'product': p, 'x': x, 'y': y,
+                "product": p,
+                "x": x,
+                "y": y,
             }
             if index <= ppg:
                 maxy = max(maxy, y + (pos // ppr))
@@ -90,11 +84,10 @@ class TableCompute(object):
 
 
 class ProductWebsite(http.Controller):
-
     def _get_search_order(self, post):
         # OrderBy will be parsed in orm and so no direct sql injection
         # id is added to be sure that order is a unique sort key
-        order = post.get('order') or 'name ASC'
+        order = post.get("order") or "name ASC"
         return order
 
     def _get_search_domain(self, search, search_in_description=True):
@@ -102,30 +95,37 @@ class ProductWebsite(http.Controller):
         if search:
             for srch in search.split(" "):
                 subdomains = [
-                    [('name', 'ilike', srch)],
-                    [('product_variant_ids.default_code', 'ilike', srch)]
+                    [("name", "ilike", srch)],
+                    [("product_variant_ids.default_code", "ilike", srch)],
                 ]
                 if search_in_description:
-                    subdomains.append([('description', 'ilike', srch)])
+                    subdomains.append([("description", "ilike", srch)])
                 domains.append(expression.OR(subdomains))
 
         return expression.AND(domains)
 
-    def sitemap_product_catalog(env, rule, qs):
-        if not qs or qs.lower() in '/product_catalog':
-            yield {'loc': '/product_catalog'}
+    # TODO: flake8
+    def sitemap_product_catalog(env, rule, qs):  # noqa: B902
+        if not qs or qs.lower() in "/product_catalog":
+            yield {"loc": "/product_catalog"}
 
-    @http.route([
-        '''/product_catalog''',
-        '''/product_catalog/page/<int:page>''',
-    ], type='http', auth="public", website=True, sitemap=sitemap_product_catalog)
-    def product_catalog(self, page=0, search='', ppg=False, **post):
-        add_qty = int(post.get('add_qty', 1))
+    @http.route(
+        [
+            """/product_catalog""",
+            """/product_catalog/page/<int:page>""",
+        ],
+        type="http",
+        auth="public",
+        website=True,
+        sitemap=sitemap_product_catalog,
+    )
+    def product_catalog(self, page=0, search="", ppg=False, **post):
+        add_qty = int(post.get("add_qty", 1))
 
         if ppg:
             try:
                 ppg = int(ppg)
-                post['ppg'] = ppg
+                post["ppg"] = ppg
             except ValueError:
                 ppg = False
         if not ppg:
@@ -133,14 +133,13 @@ class ProductWebsite(http.Controller):
 
         ppr = 4
 
-        attrib_list = request.httprequest.args.getlist('attrib')
+        attrib_list = request.httprequest.args.getlist("attrib")
         attrib_values = [[int(x) for x in v.split("-")] for v in attrib_list if v]
         attributes_ids = {v[0] for v in attrib_values}
 
         domain = self._get_search_domain(search)
 
-        keep = QueryURL('/product_catalog', search=search,
-                        order=post.get('order'))
+        keep = QueryURL("/product_catalog", search=search, order=post.get("order"))
 
         request.context = dict(request.context, partner=request.env.user.partner_id)
 
@@ -148,64 +147,81 @@ class ProductWebsite(http.Controller):
         if search:
             post["search"] = search
 
-        Product = request.env['product.template'].with_context(bin_size=True)
+        Product = request.env["product.template"].with_context(bin_size=True)
 
         search_product = Product.search(domain, order=self._get_search_order(post))
 
         product_count = len(search_product)
-        pager = request.website.pager(url=url, total=product_count, page=page, step=ppg, scope=7, url_args=post)
-        offset = pager['offset']
-        products = search_product[offset: offset + ppg]
+        pager = request.website.pager(
+            url=url, total=product_count, page=page, step=ppg, scope=7, url_args=post
+        )
+        offset = pager["offset"]
+        products = search_product[offset : offset + ppg]
 
-        ProductAttribute = request.env['product.attribute']
+        ProductAttribute = request.env["product.attribute"]
         if products:
             # get all products without limit
-            attributes = ProductAttribute.search([('product_tmpl_ids', 'in', search_product.ids)])
+            attributes = ProductAttribute.search(
+                [("product_tmpl_ids", "in", search_product.ids)]
+            )
         else:
             attributes = ProductAttribute.browse(attributes_ids)
 
-        layout_mode = 'grid'
+        layout_mode = "grid"
 
         values = {
-            'search': search,
-            'order': post.get('order', ''),
-            'pager': pager,
-            'add_qty': add_qty,
-            'products': products,
-            'search_count': product_count,  # common for all searchbox
-            'bins': TableCompute().process(products, ppg, ppr),
-            'ppg': ppg,
-            'ppr': ppr,
-            'attributes': attributes,
-            'keep': keep,
-            'layout_mode': layout_mode,
+            "search": search,
+            "order": post.get("order", ""),
+            "pager": pager,
+            "add_qty": add_qty,
+            "products": products,
+            "search_count": product_count,  # common for all searchbox
+            "bins": TableCompute().process(products, ppg, ppr),
+            "ppg": ppg,
+            "ppr": ppr,
+            "attributes": attributes,
+            "keep": keep,
+            "layout_mode": layout_mode,
         }
         return request.render("ssi_product_website.products", values)
 
-    @http.route(['/product_catalog/<model("product.template"):product>'], type='http', auth="public", website=True, sitemap=True)
-    def product(self, product, search='', **kwargs):
+    @http.route(
+        ['/product_catalog/<model("product.template"):product>'],
+        type="http",
+        auth="public",
+        website=True,
+        sitemap=True,
+    )
+    def product(self, product, search="", **kwargs):
         if not product.product_catalog:
             raise NotFound()
 
-        return request.render("ssi_product_website.product", self._prepare_product_values(product, search, **kwargs))
+        return request.render(
+            "ssi_product_website.product",
+            self._prepare_product_values(product, search, **kwargs),
+        )
 
     def _prepare_product_values(self, product, search, **kwargs):
-        add_qty = int(kwargs.get('add_qty', 1))
+        add_qty = int(kwargs.get("add_qty", 1))
 
-        product_context = dict(request.env.context, quantity=add_qty,
-                               active_id=product.id,
-                               partner=request.env.user.partner_id)
+        # TODO: flake8
+        product_context = dict(  # noqa: F841
+            request.env.context,
+            quantity=add_qty,
+            active_id=product.id,
+            partner=request.env.user.partner_id,
+        )
 
-        keep = QueryURL('/product_catalog', search=search)
+        keep = QueryURL("/product_catalog", search=search)
 
         # Needed to trigger the recently viewed product rpc
         view_track = request.website.viewref("ssi_product_website.product").track
 
         return {
-            'search': search,
-            'keep': keep,
-            'main_object': product,
-            'product': product,
-            'add_qty': add_qty,
-            'view_track': view_track,
+            "search": search,
+            "keep": keep,
+            "main_object": product,
+            "product": product,
+            "add_qty": add_qty,
+            "view_track": view_track,
         }
