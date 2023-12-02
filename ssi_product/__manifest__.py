@@ -11,6 +11,7 @@
     "application": True,
     "depends": [
         "product",
+        "ssi_decorator",
     ],
     "data": [
         "security/ir_module_category_data.xml",
