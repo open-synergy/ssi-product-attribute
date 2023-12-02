@@ -18,6 +18,7 @@
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "data/product_usage_type_data.xml",
+        "templates/product_usage_m2_configurator_templates.xml",
         "views/product_usage_type_views.xml",
         "views/product_category_views.xml",
         "views/product_template_views.xml",

@@ -10,4 +10,5 @@ from . import (
     product_category,
     product_template,
     product_product,
+    mixin_product_usage_m2o_configurator,
 )
