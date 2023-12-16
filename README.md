@@ -18,7 +18,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_product](ssi_product/) | 14.0.1.4.0 |  | Product App
+[ssi_product](ssi_product/) | 14.0.1.5.0 |  | Product App
 [ssi_product_purchase](ssi_product_purchase/) | 14.0.1.2.0 |  | Product App - purchase Integration
 [ssi_product_sale](ssi_product_sale/) | 14.0.1.2.0 |  | Product App - sale Integration
 [ssi_product_stock](ssi_product_stock/) | 14.0.1.2.0 |  | Product App - stock Integration
