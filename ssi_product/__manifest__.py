@@ -20,6 +20,7 @@
         "templates/product_category_m2_configurator_templates.xml",
         "templates/product_product_m2_configurator_templates.xml",
         "templates/product_template_m2_configurator_templates.xml",
+        "templates/product_pricelist_m2_configurator_templates.xml",
         "menu.xml",
         "views/uom_category_views.xml",
         "views/uom_uom_views.xml",
