@@ -12,6 +12,7 @@
     "depends": [
         "product",
         "ssi_decorator",
+        "ssi_master_data_mixin",
     ],
     "data": [
         "security/ir_module_category_data.xml",
@@ -31,6 +32,7 @@
         "views/product_pricelist_views.xml",
         "views/product_attribute_views.xml",
         "views/product_supplierinfo_views.xml",
+        "views/product_brand_views.xml",
     ],
     "demo": [],
 }
