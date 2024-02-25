@@ -7,10 +7,10 @@ $o-pcatalog-wizard-dot-size: 0.625rem;
 $o-pcatalog-wizard-dot-active-glow: 0.25rem;
 
 $o-pcatalog-wizard-color-inner: white;
-$o-pcatalog-wizard-color-default: gray('200');
+$o-pcatalog-wizard-color-default: gray("200");
 
-$o-pcatalog-wizard-dot-active: theme-color('primary');
-$o-pcatalog-wizard-dot-completed: theme-color('success');
+$o-pcatalog-wizard-dot-active: theme-color("primary");
+$o-pcatalog-wizard-dot-completed: theme-color("success");
 
 $o-pcatalog-wizard-label-default: $text-muted;
 $o-pcatalog-wizard-label-active: $body-color;
@@ -18,12 +18,16 @@ $o-pcatalog-wizard-label-completed: $success;
 
 .progress-wizard {
     // Scoped variables
-    $tmp-dot-radius: ($o-pcatalog-wizard-dot-size + $o-pcatalog-wizard-thickness)*0.5;
-    $tmp-check-size: max($font-size-base, $o-pcatalog-wizard-dot-size + $o-pcatalog-wizard-thickness + $o-pcatalog-wizard-dot-active-glow*2);
-    $tmp-check-pos: $o-pcatalog-wizard-dot-size*0.5 - $tmp-check-size*0.5;
+    $tmp-dot-radius: ($o-pcatalog-wizard-dot-size + $o-pcatalog-wizard-thickness) * 0.5;
+    $tmp-check-size: max(
+        $font-size-base,
+        $o-pcatalog-wizard-dot-size + $o-pcatalog-wizard-thickness +
+            $o-pcatalog-wizard-dot-active-glow * 2
+    );
+    $tmp-check-pos: $o-pcatalog-wizard-dot-size * 0.5 - $tmp-check-size * 0.5;
 
-    margin-top: $grid-gutter-width*0.5;
-    padding: 0 $grid-gutter-width*0.5;
+    margin-top: $grid-gutter-width * 0.5;
+    padding: 0 $grid-gutter-width * 0.5;
 
     @include media-breakpoint-up(md) {
         padding: 0;
@@ -33,7 +37,7 @@ $o-pcatalog-wizard-label-completed: $success;
         position: relative;
 
         @include media-breakpoint-up(md) {
-            margin-top: $tmp-dot-radius + $o-pcatalog-wizard-thickness*3.5;
+            margin-top: $tmp-dot-radius + $o-pcatalog-wizard-thickness * 3.5;
             float: left;
             width: percentage(1/3);
 
@@ -42,8 +46,9 @@ $o-pcatalog-wizard-label-completed: $success;
             }
         }
         @include media-breakpoint-down(sm) {
-            &.disabled, &.complete {
-                display:none;
+            &.disabled,
+            &.complete {
+                display: none;
             }
         }
         .progress-wizard-dot {
@@ -53,11 +58,12 @@ $o-pcatalog-wizard-label-completed: $success;
             display: inline-block;
             background-color: $o-pcatalog-wizard-color-inner;
             border-radius: 50%;
-            box-shadow: 0 0 0 $o-pcatalog-wizard-thickness $o-pcatalog-wizard-color-default;
+            box-shadow: 0 0 0 $o-pcatalog-wizard-thickness
+                $o-pcatalog-wizard-color-default;
 
             @include media-breakpoint-up(md) {
                 @include o-position-absolute($left: 50%);
-                margin: (-$tmp-dot-radius) 0 0 (-$o-pcatalog-wizard-dot-size*0.5);
+                margin: (-$tmp-dot-radius) 0 0 (-$o-pcatalog-wizard-dot-size * 0.5);
             }
         }
 
@@ -86,8 +92,10 @@ $o-pcatalog-wizard-label-completed: $success;
             .progress-wizard-dot {
                 animation: fadeIn 1s ease 0s 1 normal none running;
                 background: $o-pcatalog-wizard-dot-active;
-                box-shadow: 0 0 0 ($o-pcatalog-wizard-dot-active-glow - 0.0625rem) $o-pcatalog-wizard-color-inner,
-                            0 0 0 $o-pcatalog-wizard-dot-active-glow rgba($o-pcatalog-wizard-dot-active, 0.5);
+                box-shadow: 0 0 0 ($o-pcatalog-wizard-dot-active-glow - 0.0625rem)
+                        $o-pcatalog-wizard-color-inner,
+                    0 0 0 $o-pcatalog-wizard-dot-active-glow
+                        rgba($o-pcatalog-wizard-dot-active, 0.5);
             }
 
             .progress-wizard-steplabel {
