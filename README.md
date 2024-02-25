@@ -18,12 +18,12 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_product](ssi_product/) | 14.0.1.5.0 |  | Product App
+[ssi_product](ssi_product/) | 14.0.1.6.0 |  | Product App
 [ssi_product_purchase](ssi_product_purchase/) | 14.0.1.2.0 |  | Product App - purchase Integration
 [ssi_product_sale](ssi_product_sale/) | 14.0.1.2.0 |  | Product App - sale Integration
 [ssi_product_stock](ssi_product_stock/) | 14.0.1.2.0 |  | Product App - stock Integration
 [ssi_product_usage_account_type](ssi_product_usage_account_type/) | 14.0.1.3.0 |  | Account Type Selection for Product
-[ssi_product_website](ssi_product_website/) | 14.0.1.1.0 |  | Product App - website Integration
+[ssi_product_website](ssi_product_website/) | 14.0.1.2.0 |  | Product App - website Integration
 
 [//]: # (end addons)
 
