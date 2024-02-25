@@ -2,7 +2,7 @@
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class ProductBrand(models.Model):
@@ -14,7 +14,7 @@ class ProductBrand(models.Model):
     _order = "name"
 
     @api.depends("product_ids")
-    def _get_products_count(self):
+    def _compute_products_count(self):
         for rec in self:
             rec.products_count = len(rec.product_ids)
 
@@ -22,11 +22,9 @@ class ProductBrand(models.Model):
         comodel_name="res.partner",
         string="Partner",
         help="Select a partner for this brand if it exists",
-        ondelete="restrict"
+        ondelete="restrict",
     )
-    logo = fields.Binary(
-        string="Logo File"
-    )
+    logo = fields.Binary(string="Logo File")
     product_ids = fields.One2many(
         comodel_name="product.template",
         inverse_name="product_brand_id",
@@ -34,5 +32,5 @@ class ProductBrand(models.Model):
     )
     products_count = fields.Integer(
         string="Number of products",
-        compute="_get_products_count",
+        compute="_compute_products_count",
     )

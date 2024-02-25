@@ -2,16 +2,16 @@
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
     product_brand_id = fields.Many2one(
         comodel_name="product.brand",
         string="Brand",
-        help="Select a brand for this product"
+        help="Select a brand for this product",
     )
 
     def name_get(self):
@@ -22,8 +22,10 @@ class ProductTemplate(models.Model):
             if not product.product_brand_id:
                 res2.append(name_tuple)
                 continue
-            res2.append((
-                name_tuple[0],
-                u"{} ({})".format(name_tuple[1], product.product_brand_id.name)
-            ))
+            res2.append(
+                (
+                    name_tuple[0],
+                    "{} ({})".format(name_tuple[1], product.product_brand_id.name),
+                )
+            )
         return res2

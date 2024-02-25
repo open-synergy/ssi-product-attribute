@@ -2,11 +2,11 @@
 # Copyright 2024 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import models
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     def name_get(self):
         res = super(ProductProduct, self).name_get()
@@ -16,8 +16,10 @@ class ProductProduct(models.Model):
             if not product.product_brand_id:
                 res2.append(name_tuple)
                 continue
-            res2.append((
-                name_tuple[0],
-                u'{} ({})'.format(name_tuple[1], product.product_brand_id.name)
-            ))
+            res2.append(
+                (
+                    name_tuple[0],
+                    "{} ({})".format(name_tuple[1], product.product_brand_id.name),
+                )
+            )
         return res2
