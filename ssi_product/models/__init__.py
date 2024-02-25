@@ -7,4 +7,7 @@ from . import (
     mixin_product_product_m2o_configurator,
     mixin_product_template_m2o_configurator,
     mixin_product_pricelist_m2o_configurator,
+    product_brand,
+    product_template,
+    product_product,
 )
