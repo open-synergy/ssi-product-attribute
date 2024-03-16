@@ -10,4 +10,5 @@ from . import (
     product_brand,
     product_template,
     product_product,
+    product_pricelist,
 )
