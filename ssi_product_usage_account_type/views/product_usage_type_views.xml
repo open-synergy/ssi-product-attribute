@@ -41,6 +41,16 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <data>
+                <xpath expr="//page[1]" position="before">
+                    <page name="default" string="Default Account Configuration">
+                        <group>
+                            <field name="selection_method" />
+                            <field name="account_id" />
+                            <field name="tax_selection_method" />
+                            <field name="tax_ids" widget="many2many_tags" />
+                        </group>
+                    </page>
+                </xpath>
             </data>
         </field>
     </record>

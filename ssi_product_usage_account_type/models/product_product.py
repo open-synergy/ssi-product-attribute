@@ -33,6 +33,14 @@ class ProductProduct(models.Model):
                 usage_code=usage_code, local_dict=local_dict
             )
 
+        if not result:
+            criteria = [("code", "=", usage_code)]
+            usage_types = self.env["product.usage_type"].search(criteria)
+
+            if len(usage_types) > 0:
+                usage_type = usage_types[0]
+                result = usage_type._get_account(local_dict=local_dict)
+
         return result
 
     def _get_product_tax(self, usage_code, local_dict=False):
@@ -50,6 +58,14 @@ class ProductProduct(models.Model):
             result = self.categ_id._get_tax(
                 usage_code=usage_code, local_dict=local_dict
             )
+
+        if not result:
+            criteria = [("code", "=", usage_code)]
+            usage_types = self.env["product.usage_type"].search(criteria)
+
+            if len(usage_types) > 0:
+                usage_type = usage_types[0]
+                result = usage_type._get_tax(local_dict=local_dict)
 
         return result
 
