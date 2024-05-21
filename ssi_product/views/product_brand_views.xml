@@ -144,6 +144,7 @@
             name="Product Brands"
             id="menu_product_brand"
             action="action_product_brand"
+            groups="product_brand_group"
             sequence="15"
             parent="ssi_product.menu_category_root"
         />
