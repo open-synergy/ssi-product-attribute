@@ -26,7 +26,7 @@ class ProductPricelist(models.Model):
             context = ast.literal_eval(context)
         context.update(
             {
-                "default_priceist_id": self.id,
+                "default_pricelist_id": self.id,
             }
         )
         action["context"] = context
