@@ -27,6 +27,22 @@
 
     </field>
 </record>
+
+<record id="product_pricelist_item_search_view" model="ir.ui.view">
+    <field name="name">product.pricelist.item - search</field>
+    <field name="model">product.pricelist.item</field>
+    <field name="inherit_id" ref="product.product_pricelist_item_view_search" />
+    <field name="arch" type="xml">
+
+        <xpath expr="//filter[@name='Product Rule']" position="before">
+            <field name="product_id" />
+            <field name="product_tmpl_id" />
+            <field name="categ_id" />
+        </xpath>
+
+    </field>
+</record>
+
 <menuitem
         id="product_pricelist_menu"
         name="Pricelists"
