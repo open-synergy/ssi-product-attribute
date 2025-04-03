@@ -78,6 +78,7 @@
 
         <xpath expr="//field[@name='categ_id']" position="after">
             <field name="product_brand_id" placeholder="Brand" />
+            <field name="sequence" />
         </xpath>
 
     </field>
