@@ -8,7 +8,9 @@
     <field name="model">product.product</field>
     <field name="inherit_id" ref="product.product_product_tree_view" />
     <field name="arch" type="xml">
-
+        <xpath expr="//field[1]" position="before">
+            <field name="sequence" widget="handle" />
+        </xpath>
         <xpath expr="//field[@name='name']" position="after">
             <field name="product_brand_id" />
         </xpath>
