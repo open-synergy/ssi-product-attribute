@@ -7,6 +7,7 @@ from odoo import models
 
 class ProductProduct(models.Model):
     _inherit = "product.product"
+    _order = "categ_id, sequence, complete_name, id"
 
     def name_get(self):
         res = super(ProductProduct, self).name_get()
