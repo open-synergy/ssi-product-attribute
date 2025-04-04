@@ -8,6 +8,7 @@ from . import (
     mixin_product_template_m2o_configurator,
     mixin_product_pricelist_m2o_configurator,
     product_brand,
+    product_category,
     product_template,
     product_product,
     product_pricelist,
