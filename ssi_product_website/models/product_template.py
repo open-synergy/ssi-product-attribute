@@ -18,7 +18,9 @@ class ProductTemplate(models.Model):
             if product.id:
                 product.catalog_url = "/product_catalog/%s" % slug(product)
 
-    catalog_url = fields.Char(string="Catalog URL", compute="_compute_catalog_url")
+    catalog_url = fields.Char(
+        string="Catalog URL", compute="_compute_catalog_url", compute_sudo=True
+    )
     product_catalog = fields.Boolean(
         string="Show in Product Catalog", default=True, required=False
     )
