@@ -1,0 +1,145 @@
+scenarios:
+  - name: "Product Brand - Create and verify basic data"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "Test Brand"
+          code: "TB001"
+
+      - step: "Assert brand created"
+        action: "assert"
+        target: "brand"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Brand"
+          code:
+            type: "value"
+            expected: "TB001"
+
+  - name: "Product Brand - Create product with brand and verify name_get"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "My Brand"
+          code: "MB001"
+
+      - step: "Create product template with brand"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Test Product"
+          product_brand_id: "EVAL: registry['brand'].id"
+          type: "consu"
+
+      - step: "Assert product template brand set"
+        action: "assert"
+        target: "product_tmpl"
+        asserts:
+          product_brand_id:
+            type: "value"
+            operator: "is_truthy"
+
+      - step: "Assert product variant brand via product.product"
+        action: "search"
+        model: "product.product"
+        save_as: "product_variant"
+        domain:
+          - - "name"
+            - "="
+            - "Test Product"
+        limit: 1
+
+      - step: "Assert product variant brand is set"
+        action: "assert"
+        target: "product_variant"
+        asserts:
+          product_brand_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Product Brand - Create product without brand"
+    steps:
+      - step: "Create product template without brand"
+        action: "create"
+        model: "product.template"
+        save_as: "product_no_brand"
+        values:
+          name: "Product No Brand"
+          type: "consu"
+
+      - step: "Assert no brand set"
+        action: "assert"
+        target: "product_no_brand"
+        asserts:
+          product_brand_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Product Brand - Verify product category sequence"
+    steps:
+      - step: "Create product category with sequence"
+        action: "create"
+        model: "product.category"
+        save_as: "category"
+        values:
+          name: "Test Category Seq"
+          sequence: 10
+
+      - step: "Assert category sequence set"
+        action: "assert"
+        target: "category"
+        asserts:
+          sequence:
+            type: "value"
+            expected: 10
+
+  - name: "Product Brand - Products count computed"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "Brand Count Test"
+          code: "BCT001"
+
+      - step: "Assert brand starts with 0 products"
+        action: "assert"
+        target: "brand"
+        asserts:
+          products_count:
+            type: "value"
+            expected: 0
+
+      - step: "Create product with this brand"
+        action: "create"
+        model: "product.template"
+        save_as: "product1"
+        values:
+          name: "Product For Brand"
+          product_brand_id: "EVAL: registry['brand'].id"
+          type: "consu"
+
+      - step: "Invalidate cache after product creation"
+        action: "call"
+        target: "brand"
+        method: "invalidate_cache"
+
+      - step: "Assert brand now has 1 product"
+        action: "assert"
+        target: "brand"
+        asserts:
+          products_count:
+            type: "value"
+            operator: "is_truthy"
