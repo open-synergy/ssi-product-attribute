@@ -1,0 +1,496 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_product_usage_account_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_product_usage_account_type
+#: code:addons/ssi_product_usage_account_type/models/product_account.py:0
+#: code:addons/ssi_product_usage_account_type/models/product_category_account.py:0
+#: code:addons/ssi_product_usage_account_type/models/product_template_account.py:0
+#, python-format
+msgid ""
+"\n"
+"                Context: Add/Update product account configuration\n"
+"                Database ID: %s\n"
+"                Problem: Duplicate configuration\n"
+"                Solution: Remove duplicate entry\n"
+"                "
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__account_id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__account_id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__account_id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__account_id
+msgid "Account"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category__account_ids
+msgid "Account(s)"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__create_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__create_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__create_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__create_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__create_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__create_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_type_view_form
+msgid "Default Account Configuration"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_product__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__display_name
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__mixin_product_usage_m2o_configurator__product_usage_selection_method__domain
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_m2o_configurator_template
+msgid "Domain"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:product.usage_type,name:ssi_product_usage_account_type.product_usage_type_expense
+msgid "Expense"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_account__selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_account__tax_selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_category_account__selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_category_account__tax_selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_template_account__selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_template_account__tax_selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__selection_method__fixed
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__tax_selection_method__fixed
+msgid "Fixed"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_product__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_needaction
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:product.usage_type,name:ssi_product_usage_account_type.product_usage_type_income
+msgid "Income"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_product____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account____last_update
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__write_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__write_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__write_uid
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__write_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__write_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__write_date
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__mixin_product_usage_m2o_configurator__product_usage_selection_method__manual
+msgid "Manual"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__name
+msgid "Name"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_product
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__product_id
+msgid "Product"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_product__account_ids
+msgid "Product Account(s)"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_account
+msgid "Product Accounts"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_category
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__product_category_id
+msgid "Product Category"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_category_account
+msgid "Product Category Accounts"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_template
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__product_template_id
+msgid "Product Template"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_product__template_account_ids
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template__template_account_ids
+msgid "Product Template Account(s)"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_template_account
+msgid "Product Template Accounts"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_m2o_configurator_template
+msgid "Product Usage"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__product_usage_domain
+msgid "Product Usage Domain"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__product_usage_python_code
+msgid "Product Usage Python Code"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__product_usage_selection_method
+msgid "Product Usage Selection Method"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_product_usage_type
+#: model:res.groups,name:ssi_product_usage_account_type.product_usage_type_group
+msgid "Product Usage Type"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.actions.act_window,name:ssi_product_usage_account_type.product_usage_type_action
+#: model:ir.ui.menu,name:ssi_product_usage_account_type.menu_product_usage_type
+msgid "Product Usage Types"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_mixin_product_usage_m2o_configurator__product_usage_ids
+msgid "Product Usages"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__mixin_product_usage_m2o_configurator__product_usage_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_account__selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_account__tax_selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_category_account__selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_category_account__tax_selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_template_account__selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_template_account__tax_selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__selection_method__python
+#: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__tax_selection_method__python
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_m2o_configurator_template
+msgid "Python Code"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__selection_method
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_m2o_configurator_template
+msgid "Selection Method"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__tax_selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__tax_selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__tax_selection_method
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__tax_selection_method
+msgid "Tax Selection Method"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__tax_ids
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__tax_ids
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__tax_ids
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__tax_ids
+msgid "Taxes"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_account__usage_id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__usage_id
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__usage_id
+msgid "Usage"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model.fields,help:ssi_product_usage_account_type.field_product_usage_type__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model:ir.model,name:ssi_product_usage_account_type.model_mixin_product_usage_m2o_configurator
+msgid "product.usage_type Many2one Configurator Mixin"
+msgstr ""
