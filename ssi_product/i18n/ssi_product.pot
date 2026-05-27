@@ -1,0 +1,656 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_product
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_pricelist_view
+msgid "<span class=\"o_stat_text\">Price Rules</span>"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.product_attribute_menu
+msgid "Attributes"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.actions.act_window,name:ssi_product.action_product_brand
+#: model:ir.model.fields,field_description:ssi_product.field_product_product__product_brand_id
+#: model:ir.model.fields,field_description:ssi_product.field_product_template__product_brand_id
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_search_view
+msgid "Brand"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.actions.act_window,name:ssi_product.action_open_brand_products
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__product_ids
+msgid "Brand Products"
+msgstr ""
+
+#. module: ssi_product
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_kanban_view
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_kanban_view
+msgid "Brand:"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.product_category_menu
+#: model:ir.ui.menu,name:ssi_product.uom_category_menu
+msgid "Categories"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_product_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: ssi_product
+#: model_terms:ir.actions.act_window,help:ssi_product.product_template_action
+msgid "Create a new product"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_product_category__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_product_pricelist__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_product_product__display_name
+#: model:ir.model.fields,field_description:ssi_product.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_category_m2o_configurator__product_category_selection_method__domain
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_pricelist_m2o_configurator__pricelist_selection_method__domain
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_product_m2o_configurator__product_selection_method__domain
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_template_m2o_configurator__product_template_selection_method__domain
+#: model_terms:ir.ui.view,arch_db:ssi_product.pricelist_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_category_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_product_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_m2o_configurator_template
+msgid "Domain"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__id
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__id
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__id
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__id
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__id
+#: model:ir.model.fields,field_description:ssi_product.field_product_category__id
+#: model:ir.model.fields,field_description:ssi_product.field_product_pricelist__id
+#: model:ir.model.fields,field_description:ssi_product.field_product_product__id
+#: model:ir.model.fields,field_description:ssi_product.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_needaction
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_product
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_brand_form_view
+msgid "Image"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_pricelist__item_count
+msgid "Item Count"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_product_category____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_product_pricelist____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_product_product____last_update
+#: model:ir.model.fields,field_description:ssi_product.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_product
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_brand_kanban_view
+msgid "Logo"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__logo
+msgid "Logo File"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_category_m2o_configurator__product_category_selection_method__manual
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_pricelist_m2o_configurator__pricelist_selection_method__manual
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_product_m2o_configurator__product_selection_method__manual
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_template_m2o_configurator__product_template_selection_method__manual
+msgid "Manual"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__name
+msgid "Name"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__products_count
+msgid "Number of products"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.product_packaging_menu
+msgid "Packagings"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_product_pricelist
+#: model:ir.ui.menu,name:ssi_product.menu_pricelist_configuration_root
+#: model:ir.ui.menu,name:ssi_product.menu_pricelist_root
+#: model:res.groups,name:ssi_product.pricelist_configurator_group
+#: model_terms:ir.ui.view,arch_db:ssi_product.pricelist_m2o_configurator_template
+msgid "Pricelist"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__pricelist_domain
+msgid "Pricelist Domain"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__pricelist_python_code
+msgid "Pricelist Python Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__pricelist_selection_method
+msgid "Pricelist Selection Method"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_pricelist_m2o_configurator__pricelist_ids
+#: model:ir.ui.menu,name:ssi_product.product_pricelist_menu
+msgid "Pricelists"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_product_product
+#: model:ir.module.category,name:ssi_product.product_module_category
+#: model:res.groups,name:ssi_product.product_configurator_group
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_product_m2o_configurator_template
+msgid "Product"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_root_product
+msgid "Product & Pricelist"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.module.category,name:ssi_product.product_configurator_module_category
+msgid "Product - Configurator"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.module.category,name:ssi_product.product_workflow_data_ownership_module_category
+msgid "Product - Data Ownership"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.module.category,name:ssi_product.product_workflow_module_category
+msgid "Product - Workflow"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.product_attribute_group
+msgid "Product Attribute"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.actions.act_window,name:ssi_product.action_open_single_product_product_brand
+#: model:ir.actions.act_window,name:ssi_product.action_open_single_product_template_brand
+#: model:ir.model,name:ssi_product.model_product_brand
+#: model:res.groups,name:ssi_product.product_brand_group
+msgid "Product Brand"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_product_brand
+msgid "Product Brands"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__product_category_ids
+msgid "Product Categories"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_category_root
+msgid "Product Categories & Attributes"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_product_category
+#: model:res.groups,name:ssi_product.product_category_group
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_category_m2o_configurator_template
+msgid "Product Category"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__product_category_domain
+msgid "Product Category Domain"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__product_category_python_code
+msgid "Product Category Python Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_category_m2o_configurator__product_category_selection_method
+msgid "Product Category Selection Method"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__product_domain
+msgid "Product Domain"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.product_packaging_group
+msgid "Product Packaging"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__product_python_code
+msgid "Product Python Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__product_selection_method
+msgid "Product Selection Method"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_product_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_m2o_configurator_template
+msgid "Product Template"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__product_template_domain
+msgid "Product Template Domain"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__product_template_python_code
+msgid "Product Template Python Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__product_template_selection_method
+msgid "Product Template Selection Method"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_template_m2o_configurator__product_template_ids
+msgid "Product Templates"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.product_product_menu
+msgid "Product Varians"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.actions.act_window,name:ssi_product.product_template_action
+#: model:ir.model.fields,field_description:ssi_product.field_mixin_product_product_m2o_configurator__product_ids
+#: model:ir.ui.menu,name:ssi_product.product_template_menu
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_brand_form_view
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_brand_kanban_view
+msgid "Products"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_category_m2o_configurator__product_category_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_pricelist_m2o_configurator__pricelist_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_product_m2o_configurator__product_selection_method__code
+#: model:ir.model.fields.selection,name:ssi_product.selection__mixin_product_template_m2o_configurator__product_template_selection_method__code
+#: model_terms:ir.ui.view,arch_db:ssi_product.pricelist_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_category_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_product_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_m2o_configurator_template
+msgid "Python Code"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_product_report
+msgid "Report"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_product__product_brand_id
+#: model:ir.model.fields,help:ssi_product.field_product_template__product_brand_id
+msgid "Select a brand for this product"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__partner_id
+msgid "Select a partner for this brand if it exists"
+msgstr ""
+
+#. module: ssi_product
+#: model_terms:ir.ui.view,arch_db:ssi_product.pricelist_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_category_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_product_m2o_configurator_template
+#: model_terms:ir.ui.view,arch_db:ssi_product.product_template_m2o_configurator_template
+msgid "Selection Method"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_category__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.original_product_group
+msgid "Show original product"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.menu_uom_root
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.uom_uom_group
+msgid "UoM"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.uom_category_group
+msgid "UoM Category"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.uom_uom_menu
+msgid "UoMs"
+msgstr ""
+
+#. module: ssi_product
+#: model:res.groups,name:ssi_product.vendor_pricelist_configurator_group
+msgid "Vendor Pricelist"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.ui.menu,name:ssi_product.product_supplierinfo_menu
+msgid "Vendor Pricelists"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,field_description:ssi_product.field_product_brand__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model.fields,help:ssi_product.field_product_brand__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_mixin_product_category_m2o_configurator
+msgid "product.category Many2one Configurator Mixin"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_mixin_product_pricelist_m2o_configurator
+msgid "product.pricelist Many2one Configurator Mixin"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_mixin_product_product_m2o_configurator
+msgid "product.product Many2one Configurator Mixin"
+msgstr ""
+
+#. module: ssi_product
+#: model:ir.model,name:ssi_product.model_mixin_product_template_m2o_configurator
+msgid "product.template Many2one Configurator Mixin"
+msgstr ""
