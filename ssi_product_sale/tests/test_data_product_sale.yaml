@@ -1,0 +1,34 @@
+scenarios:
+  - name: "Product Sale Integration - Smoke Test"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "Sale Test Brand"
+          code: "STB001"
+
+      - step: "Create product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Sale Test Product"
+          product_brand_id: "EVAL: registry['brand'].id"
+          type: "consu"
+          sale_ok: true
+
+      - step: "Assert product created with sale enabled"
+        action: "assert"
+        target: "product_tmpl"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          sale_ok:
+            type: "value"
+            expected: true
+          product_brand_id:
+            type: "value"
+            operator: "is_truthy"

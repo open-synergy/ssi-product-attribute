@@ -1,0 +1,300 @@
+scenarios:
+  - name: "Product Usage Type - Create and verify basic data"
+    steps:
+      - step: "Search for existing account type"
+        action: "search"
+        model: "account.account.type"
+        save_as: "account_type"
+        domain:
+          - - "type"
+            - "="
+            - "other"
+        limit: 1
+
+      - step: "Create account for usage type"
+        action: "create"
+        model: "account.account"
+        save_as: "account"
+        values:
+          name: "Test Usage Account"
+          code: "999001"
+          user_type_id: "EVAL: registry['account_type'].id"
+
+      - step: "Create product usage type"
+        action: "create"
+        model: "product.usage_type"
+        save_as: "usage_type"
+        values:
+          name: "Test Usage Type"
+          code: "TUT001"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Assert usage type created"
+        action: "assert"
+        target: "usage_type"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Test Usage Type"
+          code:
+            type: "value"
+            expected: "TUT001"
+          selection_method:
+            type: "value"
+            expected: "fixed"
+
+  - name: "Product Usage Type - Product account configuration"
+    steps:
+      - step: "Search for existing account type"
+        action: "search"
+        model: "account.account.type"
+        save_as: "account_type"
+        domain:
+          - - "type"
+            - "="
+            - "other"
+        limit: 1
+
+      - step: "Create account"
+        action: "create"
+        model: "account.account"
+        save_as: "account"
+        values:
+          name: "Product Config Account"
+          code: "999002"
+          user_type_id: "EVAL: registry['account_type'].id"
+
+      - step: "Create product usage type"
+        action: "create"
+        model: "product.usage_type"
+        save_as: "usage_type"
+        values:
+          name: "Usage For Product Config"
+          code: "UPRD"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Create product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Product Account Config Test"
+          type: "consu"
+
+      - step: "Get product variant"
+        action: "search"
+        model: "product.product"
+        save_as: "product"
+        domain:
+          - - "name"
+            - "="
+            - "Product Account Config Test"
+        limit: 1
+
+      - step: "Create product account configuration"
+        action: "create"
+        model: "product.account"
+        save_as: "prod_account"
+        values:
+          product_id: "EVAL: registry['product'].id"
+          usage_id: "EVAL: registry['usage_type'].id"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Assert product account configuration created"
+        action: "assert"
+        target: "prod_account"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          selection_method:
+            type: "value"
+            expected: "fixed"
+
+  - name: "Product Usage Type - Category account configuration"
+    steps:
+      - step: "Search for existing account type"
+        action: "search"
+        model: "account.account.type"
+        save_as: "account_type"
+        domain:
+          - - "type"
+            - "="
+            - "other"
+        limit: 1
+
+      - step: "Create account"
+        action: "create"
+        model: "account.account"
+        save_as: "account"
+        values:
+          name: "Category Config Account"
+          code: "999003"
+          user_type_id: "EVAL: registry['account_type'].id"
+
+      - step: "Create product usage type"
+        action: "create"
+        model: "product.usage_type"
+        save_as: "usage_type"
+        values:
+          name: "Usage For Category Config"
+          code: "UCFG"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Create product category"
+        action: "create"
+        model: "product.category"
+        save_as: "category"
+        values:
+          name: "Category With Account Config"
+
+      - step: "Create category account configuration"
+        action: "create"
+        model: "product.category.account"
+        save_as: "categ_account"
+        values:
+          product_category_id: "EVAL: registry['category'].id"
+          usage_id: "EVAL: registry['usage_type'].id"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Assert category account configuration created"
+        action: "assert"
+        target: "categ_account"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          selection_method:
+            type: "value"
+            expected: "fixed"
+
+  - name: "Product Usage Type - Template account configuration"
+    steps:
+      - step: "Search for existing account type"
+        action: "search"
+        model: "account.account.type"
+        save_as: "account_type"
+        domain:
+          - - "type"
+            - "="
+            - "other"
+        limit: 1
+
+      - step: "Create account"
+        action: "create"
+        model: "account.account"
+        save_as: "account"
+        values:
+          name: "Template Config Account"
+          code: "999004"
+          user_type_id: "EVAL: registry['account_type'].id"
+
+      - step: "Create product usage type"
+        action: "create"
+        model: "product.usage_type"
+        save_as: "usage_type"
+        values:
+          name: "Usage For Template Config"
+          code: "UTMP"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Create product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Template Account Config Test"
+          type: "consu"
+
+      - step: "Create template account configuration"
+        action: "create"
+        model: "product.template.account"
+        save_as: "tmpl_account"
+        values:
+          product_template_id: "EVAL: registry['product_tmpl'].id"
+          usage_id: "EVAL: registry['usage_type'].id"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Assert template account configuration created"
+        action: "assert"
+        target: "tmpl_account"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          selection_method:
+            type: "value"
+            expected: "fixed"
+
+  - name: "Product Usage Type - Get account resolution from usage type fallback"
+    steps:
+      - step: "Search for existing account type"
+        action: "search"
+        model: "account.account.type"
+        save_as: "account_type"
+        domain:
+          - - "type"
+            - "="
+            - "other"
+        limit: 1
+
+      - step: "Create account"
+        action: "create"
+        model: "account.account"
+        save_as: "account"
+        values:
+          name: "Fallback Account"
+          code: "999005"
+          user_type_id: "EVAL: registry['account_type'].id"
+
+      - step: "Create product usage type with account"
+        action: "create"
+        model: "product.usage_type"
+        save_as: "usage_type"
+        values:
+          name: "Fallback Usage"
+          code: "FALLB"
+          account_id: "EVAL: registry['account'].id"
+
+      - step: "Assert usage type has account"
+        action: "assert"
+        target: "usage_type"
+        asserts:
+          account_id:
+            type: "value"
+            operator: "is_truthy"
+
+      - step: "Create product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Product Fallback Test"
+          type: "consu"
+
+      - step: "Get product variant"
+        action: "search"
+        model: "product.product"
+        save_as: "product"
+        domain:
+          - - "name"
+            - "="
+            - "Product Fallback Test"
+        limit: 1
+
+      - step: "Call _get_product_account on product"
+        action: "call"
+        target: "product"
+        method: "_get_product_account"
+        args:
+          - "FALLB"
+
+      - step: "Call _get_product_tax on product"
+        action: "call"
+        target: "product"
+        method: "_get_product_tax"
+        args:
+          - "FALLB"

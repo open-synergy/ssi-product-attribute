@@ -36,6 +36,7 @@
         id="ssi_product_website_products_search_box"
         inherit_id="website.website_search_box"
         primary="True"
+        priority="99"
     >
         <xpath expr="//input[@name='search']" position="attributes">
             <attribute name="data-limit">5</attribute>

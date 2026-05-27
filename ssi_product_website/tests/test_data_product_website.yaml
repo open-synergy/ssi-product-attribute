@@ -1,0 +1,53 @@
+scenarios:
+  - name: "Product Website Integration - Smoke Test"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "Website Test Brand"
+          code: "WTB001"
+
+      - step: "Create product template with catalog enabled"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Website Catalog Product"
+          product_brand_id: "EVAL: registry['brand'].id"
+          type: "consu"
+          product_catalog: true
+
+      - step: "Assert product created with catalog flag"
+        action: "assert"
+        target: "product_tmpl"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          product_catalog:
+            type: "value"
+            expected: true
+          product_brand_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Product Website Integration - Catalog URL computed"
+    steps:
+      - step: "Create product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Product URL Test"
+          type: "consu"
+          product_catalog: true
+
+      - step: "Assert catalog URL is computed"
+        action: "assert"
+        target: "product_tmpl"
+        asserts:
+          catalog_url:
+            type: "value"
+            operator: "is_truthy"

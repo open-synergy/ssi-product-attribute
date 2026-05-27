@@ -15,7 +15,9 @@ class ProductPricelist(models.Model):
         for rec in self:
             rec.item_count = len(rec.item_ids)
 
-    item_count = fields.Integer(string="Item Count", compute="_compute_item_count")
+    item_count = fields.Integer(
+        string="Item Count", compute="_compute_item_count", compute_sudo=True
+    )
 
     def action_view_price_rules(self):
         self.ensure_one()

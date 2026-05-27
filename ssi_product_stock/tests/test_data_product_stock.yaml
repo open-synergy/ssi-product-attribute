@@ -1,0 +1,33 @@
+scenarios:
+  - name: "Product Stock Integration - Smoke Test"
+    steps:
+      - step: "Create product brand"
+        action: "create"
+        model: "product.brand"
+        save_as: "brand"
+        values:
+          name: "Stock Test Brand"
+          code: "STBK001"
+
+      - step: "Create storable product template"
+        action: "create"
+        model: "product.template"
+        save_as: "product_tmpl"
+        values:
+          name: "Stock Test Product"
+          product_brand_id: "EVAL: registry['brand'].id"
+          type: "product"
+
+      - step: "Assert storable product created"
+        action: "assert"
+        target: "product_tmpl"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          type:
+            type: "value"
+            expected: "product"
+          product_brand_id:
+            type: "value"
+            operator: "is_truthy"

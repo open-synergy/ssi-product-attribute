@@ -33,4 +33,5 @@ class ProductBrand(models.Model):
     products_count = fields.Integer(
         string="Number of products",
         compute="_compute_products_count",
+        compute_sudo=True,
     )
