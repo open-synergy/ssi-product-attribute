@@ -13,6 +13,28 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <data>
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="account_id" />
+                </xpath>
+                <xpath expr="//group[@name='dom_active']" position="after">
+                    <separator />
+                    <filter
+                        name="filter_selection_fixed"
+                        string="Fixed Account"
+                        domain="[('selection_method','=','fixed')]"
+                    />
+                    <filter
+                        name="filter_selection_python"
+                        string="Python Code Account"
+                        domain="[('selection_method','=','python')]"
+                    />
+                    <separator />
+                    <filter
+                        name="grp_account"
+                        string="Account"
+                        context="{'group_by':'account_id'}"
+                    />
+                </xpath>
             </data>
         </field>
     </record>
