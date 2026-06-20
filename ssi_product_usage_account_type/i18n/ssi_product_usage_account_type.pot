@@ -32,6 +32,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_category_account__account_id
 #: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_template_account__account_id
 #: model:ir.model.fields,field_description:ssi_product_usage_account_type.field_product_usage_type__account_id
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_type_view_search
 msgid "Account"
 msgstr ""
 
@@ -134,6 +135,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__selection_method__fixed
 #: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__tax_selection_method__fixed
 msgid "Fixed"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_type_view_search
+msgid "Fixed Account"
 msgstr ""
 
 #. module: ssi_product_usage_account_type
@@ -417,6 +423,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:ssi_product_usage_account_type.selection__product_usage_type__tax_selection_method__python
 #: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_m2o_configurator_template
 msgid "Python Code"
+msgstr ""
+
+#. module: ssi_product_usage_account_type
+#: model_terms:ir.ui.view,arch_db:ssi_product_usage_account_type.product_usage_type_view_search
+msgid "Python Code Account"
 msgstr ""
 
 #. module: ssi_product_usage_account_type
