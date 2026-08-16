@@ -1,3 +1,6 @@
+options:
+  auto_refresh: true
+
 scenarios:
   - name: "Product Brand - Create and verify basic data"
     steps:
@@ -130,11 +133,6 @@ scenarios:
           name: "Product For Brand"
           product_brand_id: "EVAL: registry['brand'].id"
           type: "consu"
-
-      - step: "Invalidate cache after product creation"
-        action: "call"
-        target: "brand"
-        method: "invalidate_cache"
 
       - step: "Assert brand now has 1 product"
         action: "assert"
