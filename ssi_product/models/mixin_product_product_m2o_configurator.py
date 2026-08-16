@@ -7,7 +7,15 @@ from odoo import fields, models
 from odoo.addons.ssi_decorator import ssi_decorator
 
 
-class MixinProductProductM2OConfigurator(models.AbstractModel):
+class MixinProductProductM2oConfigurator(models.AbstractModel):
+    """
+    Provide a configurable Many2one selection of ``product.product``.
+
+    Lets a host model restrict which ``product.product`` records are
+    selectable, either manually, by domain, or by Python code, and
+    inject the corresponding form widget into the host view.
+    """
+
     _name = "mixin.product_product_m2o_configurator"
     _inherit = [
         "mixin.decorator",
