@@ -6,6 +6,14 @@ from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
+    """
+    Adds a brand field and brand-aware display names to templates.
+
+    Lets each product template be tagged with a ``product.brand``,
+    and overrides ``name_get`` so the brand is appended to the
+    template's display name.
+    """
+
     _inherit = "product.template"
 
     product_brand_id = fields.Many2one(
@@ -15,6 +23,16 @@ class ProductTemplate(models.Model):
     )
 
     def name_get(self):
+        """Append the product brand to the standard display name.
+
+        Overridden so that, when a template has
+        ``product_brand_id`` set, the brand name is shown in
+        parentheses after the name core Odoo would otherwise
+        generate (``"<name> (<brand>)"``). Templates without a
+        brand keep core's unmodified result.
+
+        :return: list of ``(id, display_name)`` tuples
+        """
         res = super(ProductTemplate, self).name_get()
         res2 = []
         for name_tuple in res:

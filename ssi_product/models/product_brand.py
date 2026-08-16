@@ -6,6 +6,15 @@ from odoo import api, fields, models
 
 
 class ProductBrand(models.Model):
+    """
+    Represents a commercial brand that products can be tagged with.
+
+    Extends ``mixin.master_data`` so brands follow the standard
+    master data lifecycle (draft/valid/expired states, sequence,
+    active flag). Products link back to their brand via
+    ``product.template.product_brand_id``.
+    """
+
     _name = "product.brand"
     _inherit = [
         "mixin.master_data",
@@ -15,6 +24,11 @@ class ProductBrand(models.Model):
 
     @api.depends("product_ids")
     def _compute_products_count(self):
+        """Count the products currently tagged with this brand.
+
+        :return: no return value; sets ``products_count`` on each
+            record in ``self`` from the length of ``product_ids``
+        """
         for rec in self:
             rec.products_count = len(rec.product_ids)
 
