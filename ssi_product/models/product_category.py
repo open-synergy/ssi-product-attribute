@@ -7,6 +7,14 @@ from odoo import fields, models
 
 
 class ProductCategory(models.Model):
+    """
+    Adds an explicit ordering field to ``product.category``.
+
+    Core Odoo does not expose a manual ``sequence`` on product
+    categories; this module adds one so categories can be ordered
+    by the user instead of falling back to name/id ordering.
+    """
+
     _name = "product.category"
     _inherit = "product.category"
     _order = "parent_id, sequence, id"
