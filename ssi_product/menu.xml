@@ -27,7 +27,7 @@
         id="menu_product_configuration"
         name="Configuration"
         parent="menu_root_product"
-        sequence="99"
+        sequence="999"
     />
 
 <menuitem
