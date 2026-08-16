@@ -13,6 +13,10 @@ Work Instruction
 * `Create Product Brand <docs/product_brand/index.html>`_
 * `Edit Product Brand <docs/product_brand/index.html>`_
 * `Delete Product Brand <docs/product_brand/index.html>`_
+* `Create Product Category <docs/product_category/index.html>`_
+* `Create Product <docs/product_template/index.html>`_
+* `Create Product Variant <docs/product_product/index.html>`_
+* `View Price Rules of a Pricelist <docs/product_pricelist/index.html>`_
 
 
 Installation
