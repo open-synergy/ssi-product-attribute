@@ -7,6 +7,14 @@ Product App
 ===========
 
 
+Work Instruction
+================
+
+* `Create Product Brand <docs/product_brand/index.html>`_
+* `Edit Product Brand <docs/product_brand/index.html>`_
+* `Delete Product Brand <docs/product_brand/index.html>`_
+
+
 Installation
 ============
 

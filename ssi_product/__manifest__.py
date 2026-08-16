@@ -11,6 +11,7 @@
     "application": True,
     "depends": [
         "product",
+        "web_tour",
         "ssi_decorator",
         "ssi_master_data_mixin",
     ],
@@ -33,6 +34,7 @@
         "views/product_attribute_views.xml",
         "views/product_supplierinfo_views.xml",
         "views/product_brand_views.xml",
+        "views/assets.xml",
     ],
     "demo": [],
 }
