@@ -44,6 +44,18 @@ class MixinProductCategoryM2oConfigurator(models.AbstractModel):
 
     @ssi_decorator.insert_on_form_view()
     def _product_category_m2o_configurator_insert_form_element(self, view_arch):
+        """Inject the product category configurator widget into the form.
+
+        Hooked by ``ssi_decorator.insert_on_form_view`` so every host
+        model gets the selection method, domain, and Python code fields
+        spliced into its form view automatically.
+
+        :param view_arch: current form view arch of the host model
+        :return: ``view_arch`` with the configurator template inserted
+            at ``_product_category_m2o_configurator_form_xpath`` when
+            ``_product_category_m2o_configurator_insert_form_element_ok``
+            is ``True``; unchanged otherwise
+        """
         # TODO
         template_xml = "ssi_product."
         template_xml += "product_category_m2o_configurator_template"
