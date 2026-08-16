@@ -4,3 +4,7 @@
 
 from . import test_product_brand
 from . import test_ui_product_brand
+from . import test_ui_product_category
+from . import test_ui_product_pricelist
+from . import test_ui_product_product
+from . import test_ui_product_template

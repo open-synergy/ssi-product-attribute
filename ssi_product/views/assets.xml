@@ -13,6 +13,22 @@
                 type="text/javascript"
                 src="/ssi_product/static/tests/tours/product_brand_tour.js"
             />
+        <script
+                type="text/javascript"
+                src="/ssi_product/static/tests/tours/product_category_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_product/static/tests/tours/product_pricelist_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_product/static/tests/tours/product_product_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_product/static/tests/tours/product_template_tour.js"
+            />
     </xpath>
 </template>
 </odoo>
